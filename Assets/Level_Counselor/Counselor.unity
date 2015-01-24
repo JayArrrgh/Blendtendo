@@ -85,8 +85,9 @@ GameObject:
   - 222: {fileID: 394750487}
   - 114: {fileID: 394750486}
   - 114: {fileID: 394750485}
+  - 114: {fileID: 394750489}
   m_Layer: 5
-  m_Name: PC Button 4
+  m_Name: PC Choice 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +131,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 394750486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634814071}
+        m_MethodName: ResolvePlayerChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 394750489}
+        m_MethodName: DisableButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &394750486
@@ -175,9 +200,21 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 330, y: -400}
+  m_AnchoredPosition: {x: -330, y: -375}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &394750489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394750484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b2d34f458e61c488ac833738d6acdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &516615855
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +226,7 @@ GameObject:
   - 222: {fileID: 516615859}
   - 114: {fileID: 516615858}
   - 114: {fileID: 516615857}
+  - 114: {fileID: 516615860}
   m_Layer: 5
   m_Name: PC Choice 3
   m_TagString: Untagged
@@ -211,7 +249,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 115, y: -400}
+  m_AnchoredPosition: {x: -330, y: -275}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &516615857
@@ -252,7 +290,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 516615858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634814071}
+        m_MethodName: ResolvePlayerChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 842129581}
+        m_MethodName: DisableButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &516615858
@@ -282,6 +344,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 516615855}
+--- !u!114 &516615860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516615855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b2d34f458e61c488ac833738d6acdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &563451942
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +366,7 @@ GameObject:
   - 224: {fileID: 563451943}
   - 222: {fileID: 563451945}
   - 114: {fileID: 563451944}
+  - 114: {fileID: 563451946}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -348,6 +423,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 563451942}
+--- !u!114 &563451946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 563451942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab96c08a73846f24498b2f9811f651f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChoice: 2
+  fadeTime: 0
+--- !u!1 &634814070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 634814072}
+  - 114: {fileID: 634814071}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &634814071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634814070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4ec736d4f8d3f47b6dddde72b4212c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &634814072
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634814070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 466.5, y: 438, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &842129576
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +486,7 @@ GameObject:
   - 222: {fileID: 842129580}
   - 114: {fileID: 842129579}
   - 114: {fileID: 842129578}
+  - 114: {fileID: 842129581}
   m_Layer: 5
   m_Name: PC Choice 2
   m_TagString: Untagged
@@ -381,7 +509,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -115, y: -400}
+  m_AnchoredPosition: {x: -330, y: -175}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &842129578
@@ -422,7 +550,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 842129579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634814071}
+        m_MethodName: ResolvePlayerChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 842129581}
+        m_MethodName: DisableButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &842129579
@@ -452,6 +604,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842129576}
+--- !u!114 &842129581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842129576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b2d34f458e61c488ac833738d6acdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &882541831
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +783,7 @@ GameObject:
   - 224: {fileID: 1007673058}
   - 222: {fileID: 1007673060}
   - 114: {fileID: 1007673059}
+  - 114: {fileID: 1007673061}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -675,6 +840,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1007673057}
+--- !u!114 &1007673061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007673057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab96c08a73846f24498b2f9811f651f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChoice: 0
+  fadeTime: 0
 --- !u!1 &1012363627
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +863,7 @@ GameObject:
   - 224: {fileID: 1012363628}
   - 222: {fileID: 1012363630}
   - 114: {fileID: 1012363629}
+  - 114: {fileID: 1012363631}
   m_Layer: 5
   m_Name: NPC Dialogue Text
   m_TagString: Untagged
@@ -706,8 +885,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 127, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 450, y: -110}
+  m_SizeDelta: {x: 800, y: 180}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1012363629
 MonoBehaviour:
@@ -724,7 +903,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -741,6 +920,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1012363627}
+--- !u!114 &1012363631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012363627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0fb5d2876e12e419c141aa48e6194f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCDialogueChoice: 0
 --- !u!1 &1063783008
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +942,7 @@ GameObject:
   - 224: {fileID: 1063783009}
   - 222: {fileID: 1063783011}
   - 114: {fileID: 1063783010}
+  - 114: {fileID: 1063783012}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -807,6 +999,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1063783008}
+--- !u!114 &1063783012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063783008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab96c08a73846f24498b2f9811f651f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChoice: 3
+  fadeTime: 0
 --- !u!1 &1430374103
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +1116,7 @@ GameObject:
   - 224: {fileID: 1757241399}
   - 222: {fileID: 1757241401}
   - 114: {fileID: 1757241400}
+  - 114: {fileID: 1757241402}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -967,6 +1173,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1757241398}
+--- !u!114 &1757241402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1757241398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab96c08a73846f24498b2f9811f651f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChoice: 1
+  fadeTime: 1
 --- !u!1 &1997389063
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1197,7 @@ GameObject:
   - 222: {fileID: 1997389066}
   - 114: {fileID: 1997389065}
   - 114: {fileID: 1997389064}
+  - 114: {fileID: 1997389068}
   m_Layer: 5
   m_Name: PC Choice 1
   m_TagString: Untagged
@@ -1023,7 +1243,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1997389065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634814071}
+        m_MethodName: ResolvePlayerChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1997389068}
+        m_MethodName: HideButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1997389068}
+        m_MethodName: DisableButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1997389065
@@ -1068,6 +1324,18 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -330, y: -400}
+  m_AnchoredPosition: {x: -330, y: -75}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &1997389068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997389063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b2d34f458e61c488ac833738d6acdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 1
