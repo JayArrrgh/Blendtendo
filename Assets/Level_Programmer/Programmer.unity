@@ -227,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1119795398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.58553457, y: -4.86446095, z: 0}
+  m_LocalPosition: {x: 4.7776227, y: -3.26374578, z: 0}
   m_LocalScale: {x: 200, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 1568809103}
@@ -280,7 +280,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1524387383}
-  - {fileID: 1751224849}
   - {fileID: 2058091585}
   m_Father: {fileID: 0}
 --- !u!1 &1524387381
@@ -362,56 +361,6 @@ Transform:
   - {fileID: 805589716}
   - {fileID: 1944304411}
   m_Father: {fileID: 0}
---- !u!1 &1751224848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1751224849}
-  - 212: {fileID: 1751224850}
-  m_Layer: 0
-  m_Name: pixel-ffffff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1751224849
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1751224848}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.41219997, y: 1.84001315, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1325562671}
---- !u!212 &1751224850
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1751224848}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 266e6cbfae3cc2e4b89aa042db4318f4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1944304410
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,8 +400,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37ad138017171249bc6514b6cceb7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codeLines: []
-  errorLine: 
+  codeLines:
+  - <html>
+  - <head>
+  - <meta boop />
+  - </head>
+  - <body>
+  - <h1>
+  - This is dumb.
+  - </h1>
+  - </body>
+  - </html>
+  errorLine: ERROR
+  current: 
 --- !u!132 &1944304413
 GUIText:
   m_ObjectHideFlags: 0
