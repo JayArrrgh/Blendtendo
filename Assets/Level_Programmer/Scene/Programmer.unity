@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 500916921}
   - 212: {fileID: 500916920}
+  - 61: {fileID: 500916923}
   - 114: {fileID: 500916922}
   m_Layer: 0
   m_Name: Key 1
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 266e6cbfae3cc2e4b89aa042db4318f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cd2ab060979125489a1d9a05824bc70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &500916921
 Transform:
@@ -121,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 500916919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .606195152, y: .983276427, z: 0}
+  m_LocalPosition: {x: -1.68555295, y: -.0213282444, z: 0}
   m_LocalScale: {x: .490308583, y: .49031046, z: 1}
   m_Children: []
   m_Father: {fileID: 805589716}
@@ -136,6 +137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe9cbc37e9bd204384ba44a6b7a8c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &500916923
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500916919}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.05999994, y: .949999988}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &805589714
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +288,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1119795399}
   - 212: {fileID: 1119795400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character Hand (or whatever)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +487,6 @@ MonoBehaviour:
   - </body>
   - </html>
   errorLine: ERROR
-  current: 
 --- !u!132 &1944304413
 GUIText:
   m_ObjectHideFlags: 0
@@ -522,8 +533,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058091584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.74608946, y: 1.8073386, z: 0}
-  m_LocalScale: {x: 220.5, y: 296.602753, z: 1}
+  m_LocalPosition: {x: -1.74508309, y: 1.8087008, z: 0}
+  m_LocalScale: {x: 220.701248, y: 296.875732, z: 1}
   m_Children: []
   m_Father: {fileID: 1325562671}
 --- !u!212 &2058091586
