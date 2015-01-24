@@ -38,8 +38,20 @@ public class CoderOutput : MonoBehaviour {
 		}
 	}
 	
-	#region Private methods
-	private void PrintLine () {
+	#region Public methods
+	public static void PrintLine () {
+		instance.MyPrintLine();
+	}
+	public static void PrintError () {
+		instance.MyPrintError();
+	}
+	public static void DeleteError () {
+		instance.MyDeleteError();
+	}
+	#endregion
+	
+	#region private methods
+	private void MyPrintLine () {
 		
 		if (current.IndexOf(errorLine) == -1) {
 		
@@ -56,11 +68,11 @@ public class CoderOutput : MonoBehaviour {
 		}
 	}
 	
-	private void PrintError () {
+	private void MyPrintError () {
 		current += errorLine;
 	}
 	
-	private void DeleteError () {
+	private void MyDeleteError () {
 		
 		int index = current.LastIndexOf(errorLine);
 		if (index != -1) {

@@ -22,24 +22,17 @@ public class CoderKey : MonoBehaviour {
 	private bool IsActive {
 		get { return renderer.enabled; }
 	}
-	private void PressKey () {
-		
-		if (IsActive) {
-			// Send keyboard a success message
-		}
-		else {
-			// Send keyboard a failure message
-		}
-	}
 		
 	#region Events
 	void OnMouseDown () {
 		CoderWeapon.HitKey(transform);
 	}
 	
-	void OnTriggerEnter (Collider other) {
-		if (other.gameObject.layer == LayerMask.NameToLayer("KeyPresser")) {
-			PressKey();
+	void OnTriggerEnter2D (Collider2D other) {
+		print ("Contact! " + name);
+		if (other.gameObject.layer == LayerMask.NameToLayer("Coder_KeyPresser")) {
+			print ("Layer! " + name);
+			CoderKeyboard.InterpretKeyPress (this);
 		}
 	}
 	#endregion

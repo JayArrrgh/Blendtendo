@@ -9,6 +9,13 @@ public class CoderWeapon : MonoBehaviour {
 		instance = this;
 	}
 	
+	void Update () {
+		
+		// Testing only
+		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+		
+	}
+	
 	#region Public methods
 	public static void HitKey(Transform key) {
 		print ("Hitting key: " + key.name);
