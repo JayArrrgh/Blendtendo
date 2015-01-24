@@ -7,14 +7,20 @@ public class CoderOutput : MonoBehaviour {
 	public string[] codeLines;
 	public string errorLine;
 	
-	public string current = "";
+	private string current = "";
 	private int linesPrinted;
 	private GUIText output;
 	private const float textUpdateRate = 0.05f;
+	private static CoderOutput instance;
+	
+	void Awake () {
+		instance = this;
+	}
 	
 	void Start () {
 		output = guiText;
 		output.text = "";
+		current = "";
 		linesPrinted = 0;
 		InvokeRepeating("UpdateCharacter", 0f, textUpdateRate);
 	}
@@ -32,7 +38,8 @@ public class CoderOutput : MonoBehaviour {
 		}
 	}
 	
-	public void PrintLine () {
+	#region Private methods
+	private void PrintLine () {
 		
 		if (current.IndexOf(errorLine) == -1) {
 		
@@ -49,11 +56,11 @@ public class CoderOutput : MonoBehaviour {
 		}
 	}
 	
-	public void PrintError () {
+	private void PrintError () {
 		current += errorLine;
 	}
 	
-	public void DeleteError () {
+	private void DeleteError () {
 		
 		int index = current.LastIndexOf(errorLine);
 		if (index != -1) {
@@ -76,4 +83,5 @@ public class CoderOutput : MonoBehaviour {
 			output.text += current[output.text.Length];
 		}
 	}
+	#endregion
 }
