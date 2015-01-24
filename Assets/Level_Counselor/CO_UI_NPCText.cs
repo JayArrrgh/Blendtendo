@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CO_UI_NPCText : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	Text text;
+
+	public int NPCDialogueChoice;
+
+
+	public CO_NPC npc = new CO_NPC();
+
+
+	void Awake()
+	{
+		text = GetComponent<Text>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+
+	void Update()
+	{
+		text.text = npc.GetDialogue(NPCDialogueChoice);
 	}
 }
