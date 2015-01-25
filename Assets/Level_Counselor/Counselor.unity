@@ -85,6 +85,7 @@ GameObject:
   - 222: {fileID: 394750487}
   - 114: {fileID: 394750486}
   - 114: {fileID: 394750485}
+  - 114: {fileID: 394750489}
   m_Layer: 5
   m_Name: PC Choice 4
   m_TagString: Untagged
@@ -143,8 +144,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_MethodName: DisableButton
+      - m_Target: {fileID: 1259809887}
+        m_MethodName: DestroyThisObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -199,9 +200,20 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -330, y: -375}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -220}
+  m_SizeDelta: {x: 460, y: 60}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &394750489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394750484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87f9bce3ee65bb4aacb30df8b121ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &475650016
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,11 +274,74 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 475650016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &484541313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 484541314}
+  - 222: {fileID: 484541316}
+  - 114: {fileID: 484541315}
+  m_Layer: 5
+  m_Name: NPCTextBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &484541314
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484541313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1012363628}
+  - {fileID: 545603854}
+  m_Father: {fileID: 1430374104}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -342.5}
+  m_SizeDelta: {x: -30, y: -715}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &484541315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484541313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: .228600159, b: .676470578, a: .392156869}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &484541316
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484541313}
 --- !u!1 &516615855
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +353,7 @@ GameObject:
   - 222: {fileID: 516615859}
   - 114: {fileID: 516615858}
   - 114: {fileID: 516615857}
+  - 114: {fileID: 516615860}
   m_Layer: 5
   m_Name: PC Choice 3
   m_TagString: Untagged
@@ -300,8 +376,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -330, y: -275}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 460, y: 60}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &516615857
 MonoBehaviour:
@@ -354,8 +430,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_MethodName: DisableButton
+      - m_Target: {fileID: 1259809887}
+        m_MethodName: DestroyThisObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -395,6 +471,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 516615855}
+--- !u!114 &516615860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516615855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87f9bce3ee65bb4aacb30df8b121ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &545603853
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,12 +512,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735546254}
-  m_Father: {fileID: 1430374104}
-  m_RootOrder: 2
+  m_Father: {fileID: 484541314}
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -19, y: 219}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 340, y: -39.5}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &545603855
 MonoBehaviour:
@@ -484,7 +571,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 545603858}
-        m_MethodName: DestroyContinueButton
+        m_MethodName: DestroyThisObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -585,7 +672,7 @@ MonoBehaviour:
   m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -625,7 +712,7 @@ GameObject:
   - 4: {fileID: 634814072}
   - 114: {fileID: 634814071}
   m_Layer: 0
-  m_Name: Gameplay Script
+  m_Name: Gameplay Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,6 +752,7 @@ GameObject:
   - 222: {fileID: 842129580}
   - 114: {fileID: 842129579}
   - 114: {fileID: 842129578}
+  - 114: {fileID: 842129581}
   m_Layer: 5
   m_Name: PC Choice 2
   m_TagString: Untagged
@@ -687,8 +775,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -330, y: -175}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -80}
+  m_SizeDelta: {x: 460, y: 60}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &842129578
 MonoBehaviour:
@@ -741,8 +829,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_MethodName: DisableButton
+      - m_Target: {fileID: 1259809887}
+        m_MethodName: DestroyThisObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -782,6 +870,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842129576}
+--- !u!114 &842129581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842129576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87f9bce3ee65bb4aacb30df8b121ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &882541831
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +1088,7 @@ MonoBehaviour:
   m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1047,12 +1146,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1430374104}
-  m_RootOrder: 1
+  m_Father: {fileID: 484541314}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -110}
-  m_SizeDelta: {x: 800, y: 180}
+  m_AnchoredPosition: {x: 451, y: -80}
+  m_SizeDelta: {x: 879, y: 132}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1012363629
 MonoBehaviour:
@@ -1066,7 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
@@ -1079,7 +1178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1012363630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1148,7 +1247,7 @@ MonoBehaviour:
   m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1188,6 +1287,7 @@ GameObject:
   - 4: {fileID: 1259809885}
   - 225: {fileID: 1259809884}
   - 114: {fileID: 1259809886}
+  - 114: {fileID: 1259809887}
   m_Layer: 0
   m_Name: PC Dialogue Buttons CanvasGroup
   m_TagString: Untagged
@@ -1233,6 +1333,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d46924286cb3824282be0ba998f8988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1259809887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259809883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87f9bce3ee65bb4aacb30df8b121ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430374103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,8 +1373,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1259809885}
-  - {fileID: 1012363628}
-  - {fileID: 545603854}
+  - {fileID: 484541314}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -1374,7 +1484,7 @@ MonoBehaviour:
   m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1384,7 +1494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Therapy-ize!
+  m_Text: Therap-ize!
 --- !u!222 &1735546256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1441,7 +1551,7 @@ MonoBehaviour:
   m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1540,8 +1650,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 1757241402}
-        m_MethodName: HideButtonText
+      - m_Target: {fileID: 1259809887}
+        m_MethodName: DestroyThisObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1596,6 +1706,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -330, y: -75}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 460, y: 60}
   m_Pivot: {x: .5, y: .5}
