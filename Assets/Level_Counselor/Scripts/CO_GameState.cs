@@ -17,12 +17,12 @@ public class CO_GameState : MonoBehaviour
 	// other dialogue disappears
 	// game result
 
-
 	private CO_SpriteChanger changer;
 
-	bool done = false;
+	int score;
 
-	// audio stuff
+
+	// Audio sources (and a couple of clips required)
 
 	public AudioSource winSound;
 
@@ -76,6 +76,33 @@ public class CO_GameState : MonoBehaviour
 	}
 
 
+	// Scoretracking methods
+	// these were designed to be called via a button's OnClick event in the Inspector.
+
+	public void ScoreZero()
+	{
+		score = 0;
+		Debug.Log (score);
+	}
+
+	public void ScoreBronze()
+	{
+		score = 1;
+		Debug.Log (score);
+	}
+
+	public void ScoreSilver()
+	{
+		score = 2;
+		Debug.Log (score);
+	}
+
+	public void ScoreGold()
+	{
+		score = 3;
+		Debug.Log (score);
+	}
+
 	public void ResolvePlayerChoice(int choice)
 	{
 		changer = GetComponent<CO_SpriteChanger>();
@@ -98,11 +125,17 @@ public class CO_GameState : MonoBehaviour
 		}
 	}
 
-	IEnumerator DialogueTransition()
+
+	public void ReturnToMenu()
 	{
-		PlayDialogueSelect();
-		yield return new WaitForSeconds(dialogueClip.length + 2.0f);
-		done = true;
+		ScoreKeeper.SetGameStats(1, score);
+		Debug.Log (score);
+		Application.LoadLevel("MenuScene");
 	}
+
+
+
+
+
 
 }
