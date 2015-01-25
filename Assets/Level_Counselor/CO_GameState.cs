@@ -20,20 +20,19 @@ public class CO_GameState : MonoBehaviour
 
 	private CO_SpriteChanger changer;
 
-	public void DisplayNPCDialogue()
-	{
-
-	}
-
+	private AudioSource audio;
 
 	public void ResolvePlayerChoice(int choice)
 	{
 		changer = GetComponent<CO_SpriteChanger>();
+		audio = GameObject.Find("StubbedSound").GetComponent<AudioSource>();
+
 		if (megaman.GetOutcome(choice) == true)
 		{
 			// end the game in the success state
 			Debug.Log ("You won!");
 			changer.ChangeSprite(true);
+			audio.Play();
 		}
 		else
 		{
