@@ -4,7 +4,7 @@ using System.Collections;
 public class CoderKey : MonoBehaviour {
 
 	public Sprite litSprite, rightSprite, wrongSprite;
-	SpriteRenderer renderer;
+	new SpriteRenderer renderer;
 	
 	void Start () {
 		renderer = GetComponent<SpriteRenderer>();
