@@ -15,4 +15,8 @@ public class CO_NPC
 	{
 		return NPCDialogue[choice];
 	}
+
+	
+	// will eventually require functions/data for...
+	// displaying associated art
 }

@@ -22,7 +22,7 @@ public class CO_UI_ButtonText : MonoBehaviour {
 
 	public void HideButtonText()
 	{
-		text.CrossFadeAlpha(0, fadeTime, true);
+		text.CrossFadeAlpha(0, fadeTime, false);
 	}
 
 	void Awake()
