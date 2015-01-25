@@ -18,7 +18,7 @@ public class CO_UI_NPC_Text_Goodbye : MonoBehaviour
 
 	public void FailText()
 	{
-		text.text = "...What? Are you even a licensed healthcore professional?";
+		text.text = "...What? Are you even a licensed healthcare professional?";
 	}
 
 }
