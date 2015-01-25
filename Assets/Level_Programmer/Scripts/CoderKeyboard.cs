@@ -58,6 +58,13 @@ public class CoderKeyboard : MonoBehaviour {
 		//LastActiveKey = ActiveKey;
 		ActiveKey = null;
 	}
+	
+	public static void DeactivateAllKeys () {
+		foreach (CoderKey key in Keys) {
+			key.gameObject.SetActive(false);
+		}
+		BackspaceKey.gameObject.SetActive(false);
+	}
 	#endregion
 	
 	public static void InterpretKeyPress (CoderKey key) {

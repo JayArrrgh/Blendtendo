@@ -4,7 +4,7 @@ using System.Collections;
 public class CoderLevelEnder : MonoBehaviour {
 	
 	private static CoderLevelEnder instance;
-	bool active = false;
+	public GameObject exitButton;
 	
 	void Awake () {
 		instance = this;
@@ -12,16 +12,8 @@ public class CoderLevelEnder : MonoBehaviour {
 	
 	public static void EndLevel () {
 		CoderCountdown.StopStopWatch();
+		CoderKeyboard.DeactivateAllKeys();
 		CoderStatusText.DisplayResults(CoderScoreboard.GetLevel());
-		instance.active = true;
-	}
-	
-	void Update () {
-	
-		if (active) {
-			if (Input.GetMouseButtonDown(0)) {
-				Application.LoadLevel("MenuScene");
-			}
-		}
+		instance.exitButton.SetActive(true);
 	}
 }
