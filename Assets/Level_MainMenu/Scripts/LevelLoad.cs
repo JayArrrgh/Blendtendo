@@ -21,8 +21,10 @@ public class LevelLoad : MonoBehaviour {
 
 	void LoadScene(){
 		loadLock = true;
+		//yield WaitForSeconds (audio.clip.length);
 		Application.LoadLevel (scene);
 		print ("hey it worked.");
+
 	}
 
 	void OnMouseDown(){
@@ -34,6 +36,7 @@ public class LevelLoad : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Player" ) {
 			if (loadLock == true){
+
 				StartCoroutine( LoadSceneDelayed());
 			}
 		}
