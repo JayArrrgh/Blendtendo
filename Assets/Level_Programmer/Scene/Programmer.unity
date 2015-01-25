@@ -182,7 +182,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 30
+  m_FontSize: 26
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -323,9 +323,9 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 266e6cbfae3cc2e4b89aa042db4318f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05c833b68f6433c4a97e93d94db22317, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &460414243
 Transform:
@@ -334,8 +334,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460414241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.38554382e-05, y: -2.28881836e-05, z: 10}
-  m_LocalScale: {x: 1331.01917, y: 997.53656, z: 1}
+  m_LocalPosition: {x: -1.22671461, y: .245343924, z: 10}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!1 &466982426
@@ -386,7 +386,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 466982426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.54511428, y: .316391826, z: 0}
+  m_LocalPosition: {x: 4.19936848, y: .111937776, z: 0}
   m_LocalScale: {x: .559920549, y: .559920549, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1142,7 +1142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1480620806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.15550606, y: -.112970434, z: 0}
+  m_LocalPosition: {x: -.0737244338, y: -.112970434, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2036709331}
@@ -1745,7 +1745,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 20
+  m_FontSize: 17
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -1810,7 +1810,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 20
+  m_FontSize: 17
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
