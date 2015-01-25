@@ -19,4 +19,8 @@ public class CoderWeapon : MonoBehaviour {
 		print ("Hitting key: " + key.name);
 	}
 	#endregion
+	
+	public static Collider2D Col2D {
+		get { return instance.collider2D; }
+	}
 }
