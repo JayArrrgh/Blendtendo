@@ -36,7 +36,7 @@ public class CoderCountdown : MonoBehaviour {
 		}
 		
 		guiText.text = prefix + Mathf.Max((float)(duration - sw.Elapsed.TotalSeconds), 0).ToString("F2");
-		if (sw.Elapsed.TotalSeconds > duration) {
+		if (sw.Elapsed.TotalSeconds > duration && !CoderLevelEnder.LevelEnded) {
 			CoderLevelEnder.EndLevel ();
 		}
 	}

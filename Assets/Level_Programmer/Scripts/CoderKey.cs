@@ -61,10 +61,13 @@ public class CoderKey : MonoBehaviour {
 	}
 	
 	public void GetHit () {
-		if (!CoderCountdown.IsRunning) {
-			CoderCountdown.StartStopWatch();
+		
+		if (!CoderLevelEnder.LevelEnded) {
+			if (!CoderCountdown.IsRunning) {
+				CoderCountdown.StartStopWatch();
+			}
+			CoderKeyboard.InterpretKeyPress (this);
 		}
-		CoderKeyboard.InterpretKeyPress (this);
 	}
 	#endregion
 }

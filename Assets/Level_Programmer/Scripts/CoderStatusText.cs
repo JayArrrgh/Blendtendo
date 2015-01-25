@@ -22,15 +22,19 @@ public class CoderStatusText : MonoBehaviour {
 		switch (level) {
 			case "gold":
 				instance.guiText.text = goldText;
+				ScoreKeeper.SetGameStats(1, 3);
 				break;
 			case "silver":
 				instance.guiText.text = silverText;
+				ScoreKeeper.SetGameStats(1, 2);
 				break;
 			case "bronze":
 				instance.guiText.text = bronzeText;
+				ScoreKeeper.SetGameStats(1, 1);
 				break;
 			default:
 				instance.guiText.text = failText;
+				ScoreKeeper.SetGameStats(1, 0);
 				break;
 		}
 	}
