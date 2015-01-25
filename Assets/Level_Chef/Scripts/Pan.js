@@ -30,7 +30,7 @@ public class Pan extends MonoBehaviour
       var spriteRenderer : SpriteRenderer = GetComponent( SpriteRenderer );
       if( spriteRenderer != null )
       {
-        spriteRenderer.color = Color.Lerp( Color.white, Color.red, heatLevel / 10.0f );
+        spriteRenderer.color = Color.Lerp( Color.white, Color.red, heatLevel / 20.0f );
       }
     }
   

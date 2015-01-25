@@ -33,7 +33,6 @@ public class StoveElement extends MonoBehaviour
   {
     heatLevel = newHeatLevel;
     
-    // Adjust size (radius) of flame.
     if( flame != null )
     {
       flame.setHeatLevel( heatLevel );
