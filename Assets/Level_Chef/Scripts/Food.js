@@ -8,11 +8,18 @@ public class Food extends MonoBehaviour
   public var cookedLevel : float = 0.0f;
   public var heatResistance : float = 0.4f;
   
-  private var dragging : boolean = false;
+  public var dragging : boolean = false;
+  
+  protected var originPosition : Vector3;
+  
+  public var cuttingBoard : CuttingBoard = null;
+  public var pan : Pan = null;
 
   function Start()
   {
-    
+    originPosition = transform.position;
+  
+    reset();
   }
 
   function Update()
@@ -40,9 +47,15 @@ public class Food extends MonoBehaviour
     }
   }
   
-  function OnMouseDown()
+  public function reset()
   {
-    //print( "mouse down" );
+    var spriteRenderer : SpriteRenderer = GetComponent( SpriteRenderer );
+    if( spriteRenderer != null )
+    {
+      spriteRenderer.color = Color.white;
+    }
+    
+    transform.position = originPosition;
   }
   
   function OnMouseUp()
@@ -63,17 +76,9 @@ public class Food extends MonoBehaviour
     if( !dragging )
     {
       dragging = true;
-      //print( "" + curPosition.x + ":" + curPosition.y + ":" + curPosition.z );
-      
-      //if( handle != null )
-      {
-        //print( "drag with handle" );
-      
-        //panCenterToDragPointDistance = transform.position - curPosition;
-      }
     }
     
-    //transform.position = curPosition + panCenterToDragPointDistance;
+    transform.position = curPosition;
   }
   
   public function associateBurnerWithPan( newBurner : StoveElement )
@@ -98,7 +103,7 @@ public class Food extends MonoBehaviour
       var curPan : Pan = other.GetComponent( Pan );
       if( curPan != null )
       {
-        //associateBurnerWithPan( curPan );
+        //curPan.associateFoodWithPan( curPan );
       }
     }
   }
