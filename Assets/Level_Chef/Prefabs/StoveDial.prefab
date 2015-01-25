@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21270726}
   - 58: {fileID: 5870726}
   - 114: {fileID: 11470726}
-  - 114: {fileID: 11494288}
   m_Layer: 0
   m_Name: StoveDial
   m_TagString: Untagged
@@ -26,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0700000003, y: -4.13999987, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.75999999, y: -3.56999993, z: 0}
+  m_LocalScale: {x: .575100005, y: .575099885, z: .575099885}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,23 +42,6 @@ CircleCollider2D:
   m_Radius: 1.125
   m_Center: {x: 0, y: 0}
 --- !u!114 &11470726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12a58e5ad3444e48bf061f382e1eb59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  on: 0
-  level: 0
-  minLevel: 0
-  maxLevel: 7
-  levelTickIncrement: 1
-  stoveElement: {fileID: 0}
---- !u!114 &11494288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

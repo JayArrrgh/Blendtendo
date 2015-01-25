@@ -42,11 +42,11 @@ public class SceneFadeInOut : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag == "Player") {
+		/*if (target.gameObject.tag == "Player") {
 			if (loadLock == true){
 				StartCoroutine( LoadSceneDelayed());
 			}
-		}
+		}*/
 	}
 	
 	
