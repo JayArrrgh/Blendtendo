@@ -3,8 +3,18 @@ using System.Collections;
 
 public class CoderKey : MonoBehaviour {
 
+	public Sprite litSprite, rightSprite, wrongSprite;
+	SpriteRenderer renderer;
+	
+	void Start () {
+		renderer = GetComponent<SpriteRenderer>();
+		renderer.sprite = litSprite;
+		LightOff ();
+	}
+	
 	#region Public Methods
 	public void Activate () {
+		renderer.sprite = litSprite;
 		LightOn ();
 	}
 	public void Deactivate () {
@@ -25,7 +35,30 @@ public class CoderKey : MonoBehaviour {
 		
 	#region Events
 	void OnMouseDown () {
-		CoderWeapon.TargetKey(this);
+		print ("Detected mousedown");
+		if (IsActive) {
+			// Flash right
+			StartCoroutine("FlashRight");
+			CoderWeapon.TargetKey(this);
+		}
+		else {
+			// Flash wrong and turn off
+			StartCoroutine("FlashWrong");
+			CoderWeapon.TargetKey(this);
+		}
+	}
+	
+	IEnumerator FlashRight () {
+		renderer.sprite = rightSprite;
+		yield return new WaitForSeconds(0.15f);
+		renderer.sprite = litSprite;
+	}
+	
+	IEnumerator FlashWrong () {
+		renderer.sprite = wrongSprite;
+		LightOn ();
+		yield return new WaitForSeconds(0.15f);
+		LightOff ();
 	}
 	
 	public void GetHit () {

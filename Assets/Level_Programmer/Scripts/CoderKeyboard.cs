@@ -19,6 +19,7 @@ public class CoderKeyboard : MonoBehaviour {
 	
 	void Start () {
 		errorCount = 0;
+		ActivateKey(PickRandomKeyNoRepeats());
 	}
 	
 	void Update () {
@@ -114,6 +115,9 @@ public class CoderKeyboard : MonoBehaviour {
 	private static int ErrorCount {
 		get { return instance.errorCount; }
 		set { instance.errorCount = value; }
+	}
+	public static CoderKeyboard Keyboard {
+		get { return instance; }
 	}
 	#endregion
 }

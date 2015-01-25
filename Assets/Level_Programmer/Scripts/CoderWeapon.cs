@@ -10,20 +10,10 @@ public class CoderWeapon : MonoBehaviour {
 		instance = this;
 	}
 	
-	void Update () {
-		// Testing only
-		transform.Translate(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-		
-		if (Input.GetKeyDown(KeyCode.G)) {
-			animation.Play();
-		}
-	}
-	
 	#region Public methods
 	public static void TargetKey(CoderKey key) {
-		print ("Hitting key: " + key.name);
+		
 		instance.targetKey = key;
-		// Play animation
 		if (instance.animation.isPlaying) {
 			instance.animation.Stop ();
 		}
