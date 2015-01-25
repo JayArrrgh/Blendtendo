@@ -4,9 +4,12 @@ using System.Collections;
 public class SceneFadeInOut : MonoBehaviour {
 
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
-	
+	public string scene;
+	public bool fadeOutOnClick;
+	private bool loadLock = false;
 	
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
+	private bool sceneEnding = false;
 	
 	
 	void Awake ()
@@ -18,10 +21,17 @@ public class SceneFadeInOut : MonoBehaviour {
 	
 	void Update ()
 	{
-		// If the scene is starting...
-		if(sceneStarting)
+				// If the scene is starting...
+		if (sceneStarting){
 			// ... call the StartScene function.
-			StartScene();
+			StartScene ();
+		}
+		if (Input.GetMouseButtonDown (0)) {
+			sceneEnding = true;
+		}
+		if(sceneEnding && fadeOutOnClick){ 
+			EndScene ();
+		}
 	}
 	
 	
@@ -29,6 +39,14 @@ public class SceneFadeInOut : MonoBehaviour {
 	{
 		// Lerp the colour of the texture between itself and transparent.
 		guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+	}
+
+	void OnTriggerEnter2D(Collider2D target){
+		if (target.gameObject.tag == "Player") {
+			if (loadLock == true){
+				StartCoroutine( LoadSceneDelayed());
+			}
+		}
 	}
 	
 	
@@ -55,7 +73,10 @@ public class SceneFadeInOut : MonoBehaviour {
 			sceneStarting = false;
 		}
 	}
-	
+
+	void OnMouseDown(){
+		sceneEnding = true;
+		}
 	
 	public void EndScene ()
 	{
@@ -68,7 +89,7 @@ public class SceneFadeInOut : MonoBehaviour {
 		// If the screen is almost black...
 		if(guiTexture.color.a >= 0.95f)
 			// ... reload the level.
-			Application.LoadLevel(0);
+			Application.LoadLevel(scene);
 	}
 }
 

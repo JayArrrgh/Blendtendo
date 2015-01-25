@@ -4,6 +4,11 @@ public class Flame extends MonoBehaviour
 {
   protected var on : boolean = false;
   protected var heatLevel : float = 0.0f;
+  
+  public var minScale : float = 0.0f;
+  public var maxScale : float = 0.5f;
+  
+  public var maxHeatLevel : float = 10.0f;
 
   function Start()
   {
@@ -51,5 +56,8 @@ public class Flame extends MonoBehaviour
     heatLevel = newHeatLevel;
     
     // Adjust size (radius) of flame.
+    var heatLevelRatio : float = heatLevel / maxHeatLevel;
+    var scaleFactor : float = Mathf.Lerp( minScale, maxScale, heatLevelRatio );
+    transform.localScale = Vector3( scaleFactor, scaleFactor, 0 );
   }
 }
