@@ -37,6 +37,10 @@ public class StoveDial extends MonoBehaviour
     if( stoveElement != null )
     {
       stoveElement.turnOn( on );
+      
+      // Level to heat level.
+      var heatLevel : float = level / maxLevel * 10.0f;
+      stoveElement.setHeatLevel( heatLevel );
     }
   }
   

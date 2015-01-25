@@ -1,26 +1,27 @@
 ﻿#pragma strict
 
-public class PanAndHandle extends MonoBehaviour
+public class PanHandle extends MonoBehaviour
 {
   //protected var onBurner : boolean = false;
   protected var burner : StoveElement = null;
   
-  public var handle : GameObject;
+  public var pan : Pan;
   
   private var dragging : boolean = false;
   private var panCenterToDragPointDistance : Vector3;
 
   function Start()
   {
-    
+    var parentTransform : Transform = transform.parent;
+    var parentGameObject = parentTransform.gameObject;
+    pan = parentGameObject.GetComponent( Pan );
+    if( pan != null )
+    {
+      //print( "we have pan" );
+    }
   }
 
   function Update()
-  {
-    
-  }
-  
-  function setBurner( newBurner : StoveElement ) : boolean
   {
     
   }
@@ -50,14 +51,35 @@ public class PanAndHandle extends MonoBehaviour
       dragging = true;
       //print( "" + curPosition.x + ":" + curPosition.y + ":" + curPosition.z );
       
-      if( handle != null )
+      if( pan != null )
       {
         //print( "drag with handle" );
       
-        panCenterToDragPointDistance = transform.position - curPosition;
+        panCenterToDragPointDistance = pan.transform.position - curPosition;
       }
     }
     
-    transform.position = curPosition + panCenterToDragPointDistance;
+    if( pan != null )
+    {
+      pan.transform.position = curPosition + panCenterToDragPointDistance;
+    }
+  }
+  
+  public function associateBurnerWithPan()
+  {
+    // Iterate through all the burners and determine if there is overlap of 1 burner.
+    if( StoveSurface.reference == null )
+    {
+      return;
+    }
+    
+    var burners : StoveElement[];
+    StoveSurface.reference.getBurners( burners );
+    
+    // If so,
+    // - associate burner with pan.
+    // - 
+
+    // TODO: Orient pan a handle?
   }
 }

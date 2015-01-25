@@ -8,7 +8,7 @@ public class CO_NPC
 
 	public CO_NPC()
 	{
-		NPCDialogue[0] = "I got issues, doc. My brudda used ta feed my goldfish Goldfish crackas. I'm messed up man.";
+		NPCDialogue[0] = "This Metroid has coupled with my head. I don't think that it is really in love with me, and I am certainly not in love with it. What should I do?";
 	}
 
 	public string GetDialogue(int choice)
@@ -17,6 +17,6 @@ public class CO_NPC
 	}
 
 	
-	// will eventually require functions/data for...
+	// may eventually require functions/data for...
 	// displaying associated art
 }

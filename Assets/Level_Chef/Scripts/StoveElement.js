@@ -3,16 +3,18 @@
 public class StoveElement extends MonoBehaviour
 {
   protected var on : boolean = false;
-  protected var level : float = 0.0f;
+  protected var heatLevel : float = 0.0f;
   
   public var flame : Flame;
+  
+  protected var pan : Pan = null;
 
   function Update()
   {
     turnOn( on );
     if( flame != null )
     {
-      flame.setLevel( level );
+      flame.setHeatLevel( heatLevel );
     }
   }
   
@@ -27,14 +29,32 @@ public class StoveElement extends MonoBehaviour
     }
   }
   
-  public function setLevel( newLevel : float )
+  public function setHeatLevel( newHeatLevel : float )
   {
-    level = newLevel;
+    heatLevel = newHeatLevel;
     
     // Adjust size (radius) of flame.
     if( flame != null )
     {
-      flame.setLevel( newLevel );
+      flame.setHeatLevel( heatLevel );
     }
+  }
+  
+  public function getPan() : Pan
+  {
+    return pan;
+  }
+  
+  public function setPan( newPan : Pan ) : boolean
+  {
+    if( pan != null )
+    {
+      // TODO: Do something clever, as there is already a pan here?
+      return false;
+    }
+    
+    pan = newPan;
+    
+    return true;
   }
 }

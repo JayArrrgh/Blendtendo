@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CO_UI_ContinueButton : MonoBehaviour 
+public class CO_ObjectDestruction : MonoBehaviour 
 {
 	
-	public void DestroyContinueButton()
+	public void DestroyThisObject()
 	{
 		Destroy(gameObject);
 	}
