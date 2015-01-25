@@ -18,6 +18,8 @@ public class CO_GameState : MonoBehaviour
 	// game result
 
 
+	private CO_SpriteChanger changer;
+
 	public void DisplayNPCDialogue()
 	{
 
@@ -26,16 +28,18 @@ public class CO_GameState : MonoBehaviour
 
 	public void ResolvePlayerChoice(int choice)
 	{
+		changer = GetComponent<CO_SpriteChanger>();
 		if (megaman.GetOutcome(choice) == true)
 		{
 			// end the game in the success state
 			Debug.Log ("You won!");
-
+			changer.ChangeSprite(true);
 		}
 		else
 		{
 			// end the game in the fail state
 			Debug.Log ("You lost!");
+			changer.ChangeSprite(false);
 		}
 	}
 

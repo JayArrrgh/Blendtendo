@@ -711,6 +711,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 634814072}
   - 114: {fileID: 634814071}
+  - 114: {fileID: 634814073}
   m_Layer: 0
   m_Name: Gameplay Scripts
   m_TagString: Untagged
@@ -741,6 +742,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &634814073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634814070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824b372bf88ab184996ff8a0b4643746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sadSprite: {fileID: 21300002, guid: a476bd4bf0f9e2c4682ad3c0d5e90ab9, type: 3}
+  happySprite: {fileID: 21300004, guid: a476bd4bf0f9e2c4682ad3c0d5e90ab9, type: 3}
 --- !u!1 &842129576
 GameObject:
   m_ObjectHideFlags: 0
