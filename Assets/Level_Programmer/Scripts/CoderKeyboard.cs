@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (AudioSource))]
 public class CoderKeyboard : MonoBehaviour {
 
 	public CoderKey[] keys;
 	public CoderKey backspaceKey;
+	public AudioClip typingSound, errorSound;
 	
 	private static CoderKeyboard instance;
 	private CoderKey activeKey;
@@ -58,11 +60,19 @@ public class CoderKeyboard : MonoBehaviour {
 		//LastActiveKey = ActiveKey;
 		ActiveKey = null;
 	}
+	
+	public static void DeactivateAllKeys () {
+		foreach (CoderKey key in Keys) {
+			key.gameObject.SetActive(false);
+		}
+		BackspaceKey.gameObject.SetActive(false);
+	}
 	#endregion
 	
 	public static void InterpretKeyPress (CoderKey key) {
 		if (key == BackspaceKey && ErrorCount > 0) {
 			DeactivateKey(key);
+			instance.audio.PlayOneShot(instance.typingSound);
 			CoderOutput.DeleteError();
 			ErrorCount--;
 			if (ErrorCount == 0) {
@@ -74,6 +84,7 @@ public class CoderKeyboard : MonoBehaviour {
 		}
 		else if (key == ActiveKey) {
 			key.Deactivate();
+			instance.audio.PlayOneShot(instance.typingSound);
 			CoderOutput.PrintLine();
 			CoderScoreboard.GetPoint();
 			ActivateKey(PickRandomKeyNoRepeats());
@@ -84,6 +95,7 @@ public class CoderKeyboard : MonoBehaviour {
 				MissedActiveKey = ActiveKey;
 			}
 			DeactivateKey(ActiveKey);
+			instance.audio.PlayOneShot(instance.errorSound);
 			CoderOutput.PrintError();
 			ActivateKey(BackspaceKey);
 			ErrorCount = 1; // Track all errors with single boolean

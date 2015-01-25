@@ -6,7 +6,7 @@ using System;
 public class CoderCountdown : MonoBehaviour {
 	
 	public double duration;
-	
+	private string prefix = "Time Remaining: ";
 	private static CoderCountdown instance;
 	
 	Stopwatch sw;
@@ -15,6 +15,10 @@ public class CoderCountdown : MonoBehaviour {
 	void Awake () {
 		instance = this;
 		sw = new Stopwatch();
+	}
+	
+	public static bool IsRunning {
+		get { return instance.sw.IsRunning; }
 	}
 	
 	public static void StartStopWatch () {
@@ -31,9 +35,9 @@ public class CoderCountdown : MonoBehaviour {
 			StartStopWatch();
 		}
 		
-		guiText.text = Mathf.Max((float)(duration - sw.Elapsed.TotalSeconds), 0).ToString("F2");
-		if (sw.Elapsed.TotalSeconds > duration) {
-			print ("Time's up");
+		guiText.text = prefix + Mathf.Max((float)(duration - sw.Elapsed.TotalSeconds), 0).ToString("F2");
+		if (sw.Elapsed.TotalSeconds > duration && !CoderLevelEnder.LevelEnded) {
+			CoderLevelEnder.EndLevel ();
 		}
 	}
 }
