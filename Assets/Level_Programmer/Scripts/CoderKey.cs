@@ -35,7 +35,6 @@ public class CoderKey : MonoBehaviour {
 		
 	#region Events
 	void OnMouseDown () {
-		print ("Detected mousedown");
 		if (IsActive) {
 			// Flash right
 			StartCoroutine("FlashRight");
@@ -62,6 +61,9 @@ public class CoderKey : MonoBehaviour {
 	}
 	
 	public void GetHit () {
+		if (!CoderCountdown.IsRunning) {
+			CoderCountdown.StartStopWatch();
+		}
 		CoderKeyboard.InterpretKeyPress (this);
 	}
 	#endregion
