@@ -13,7 +13,7 @@ public class HeatTransferUtility extends MonoBehaviour
       return heatLevel;
     }
   
-    var heatIncrement : float = heatResistance / 40.0f;
+    var heatIncrement : float = heatResistance / 20.0f;
     if( heatLevel < appliedHeatLevel )
     {
       heatLevel += heatIncrement;
