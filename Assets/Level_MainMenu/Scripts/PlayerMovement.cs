@@ -17,28 +17,29 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 						Vector3 mouseClick = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 						
-			if(mouseClick.x > transform.position.x){
-				directionX = 1;
-				animator.SetInteger ("AnimState", 2);
-			} else if (mouseClick.x < transform.position.x) {
-				directionX = -1;
-				animator.SetInteger ("AnimState", 1);
-			}
-//			} else {
-//				directionX = 0;
-//				animator.SetInteger ("AnimState", 0);
-//			}
-//			if(mouseClick.x - transform.position.x > 0.1f){
-//				directionX = 1;
+//			if(mouseClick.x > transform.position.x){
+//					directionX = 1;
 //				animator.SetInteger ("AnimState", 2);
-//
-//			} else if (mouseClick.x - transform.position.x < 0.1f) {
+//				
+//			} else if (mouseClick.x < transform.position.x) {
 //				directionX = -1;
 //				animator.SetInteger ("AnimState", 1);
+//			}
 //			} else {
 //				directionX = 0;
 //				animator.SetInteger ("AnimState", 0);
 //			}
+			if(mouseClick.x == transform.position.x){
+				directionX = 0;
+				animator.SetInteger ("AnimState", 0);
+			} else if(mouseClick.x - transform.position.x > 0.1f){
+				directionX = 1;
+				animator.SetInteger ("AnimState", 2);
+
+			} else if (mouseClick.x - transform.position.x < 0.1f) {
+				directionX = -1;
+				animator.SetInteger ("AnimState", 1);
+			} 
 		}
 
 		if (directionX != 0) {
