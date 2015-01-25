@@ -9,10 +9,12 @@ public class CoderKeyboard : MonoBehaviour {
 	private static CoderKeyboard instance;
 	private CoderKey activeKey;
 	private CoderKey missedActiveKey;
+	private CoderKey lastActiveKey;
 	private int errorCount;
 	
 	void Awake () {
 		instance = this;
+		LastActiveKey = null;
 	}
 	
 	void Start () {
@@ -20,14 +22,29 @@ public class CoderKeyboard : MonoBehaviour {
 	}
 	
 	void Update () {
+		// Testing
 		if (Input.GetKeyDown (KeyCode.F)) {
-			ActivateKey(PickRandomKey());
+			ActivateKey(PickRandomKeyNoRepeats());
 		}
 	}
 	
+	#region Private Helpers
 	private static CoderKey PickRandomKey () {
+		
 		int randomKeyIndex = Mathf.FloorToInt(Random.value * Keys.Length);
 		return Keys[randomKeyIndex];
+	}
+	
+	private static CoderKey PickRandomKeyNoRepeats () {
+		
+		CoderKey nextKey;
+		do {
+			nextKey = PickRandomKey();
+		} while (nextKey == LastActiveKey);
+		
+		LastActiveKey = nextKey;
+		
+		return nextKey;
 	}
 	
 	private static void ActivateKey (CoderKey key) {
@@ -37,21 +54,17 @@ public class CoderKeyboard : MonoBehaviour {
 	
 	private static void DeactivateKey (CoderKey key) {
 		key.Deactivate();
+		//LastActiveKey = ActiveKey;
 		ActiveKey = null;
 	}
+	#endregion
 	
 	public static void InterpretKeyPress (CoderKey key) {
 		if (key == BackspaceKey && ErrorCount > 0) {
-			// Turn it off
 			DeactivateKey(key);
-			// Send delete error to the output
 			CoderOutput.DeleteError();
-			// Decrement the error count
 			ErrorCount--;
-			print ("errors: " + ErrorCount);
 			if (ErrorCount == 0) {
-				print ("Activating old missed: " + MissedActiveKey.name);
-				// Re-activate previous next
 				ActivateKey(MissedActiveKey);
 			}
 			else {
@@ -59,31 +72,23 @@ public class CoderKeyboard : MonoBehaviour {
 			}
 		}
 		else if (key == ActiveKey) {
-			// Turn it off
 			key.Deactivate();
-			// Send success message to the output
 			CoderOutput.PrintLine();
 			
 			// Tell GameManager or whatever about the success
 			//////////////PUT THIS IN//////////////////////
 			
-			// ?wait? and move onto the next one.
-			ActivateKey(PickRandomKey());
+			ActivateKey(PickRandomKeyNoRepeats());
 		}
 		else {
-			// If not backspace, save it for later
 			if (ErrorCount == 0) {
+				// If not backspace, save it for later
 				MissedActiveKey = ActiveKey;
 			}
-			// Turn it off
 			DeactivateKey(ActiveKey);
-			// Send error to the output
 			CoderOutput.PrintError();
-			// Activate the backspace
 			ActivateKey(BackspaceKey);
-			// Increment the error count
 			ErrorCount++;
-			print ("Errors: " + ErrorCount);
 		}
 	}
 	
@@ -95,6 +100,10 @@ public class CoderKeyboard : MonoBehaviour {
 	private static CoderKey MissedActiveKey {
 		get { return instance.missedActiveKey; }
 		set { instance.missedActiveKey = value; }
+	}
+	private static CoderKey LastActiveKey {
+		get { return instance.lastActiveKey; }
+		set { instance.lastActiveKey = value; }
 	}
 	private static CoderKey[] Keys {
 		get { return instance.keys; }

@@ -10,10 +10,8 @@ public class CoderWeapon : MonoBehaviour {
 	}
 	
 	void Update () {
-		
 		// Testing only
-		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-		
+		transform.Translate(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
 	}
 	
 	#region Public methods

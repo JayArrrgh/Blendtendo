@@ -26,7 +26,7 @@ public class CoderOutput : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+		// Testing
 		if (Input.GetKeyDown(KeyCode.A)) {
 			PrintLine ();
 		}
