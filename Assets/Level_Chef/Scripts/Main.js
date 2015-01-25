@@ -39,12 +39,12 @@ public class Main extends MonoBehaviour
     //ScoreKeeper.SetGameStats( 1, score );
     
     // Damn, pulled this from ScoreKeeper::SetScore, because I suck and Unity Technologies suck.
-    var isPlayed : String = Application.loadedLevelName + "_Played";
-    var hasScore : String = Application.loadedLevelName + "_Score";
-
-    PlayerPrefs.SetInt(isPlayed, 1);
-    PlayerPrefs.SetInt(hasScore, score);
-    PlayerPrefs.Save();
+//    var isPlayed : String = Application.loadedLevelName + "_Played";
+//    var hasScore : String = Application.loadedLevelName + "_Score";
+//
+//    PlayerPrefs.SetInt(isPlayed, 1);
+//    PlayerPrefs.SetInt(hasScore, score);
+//    PlayerPrefs.Save();
   }
   
   public function ReturnToMenu()

@@ -177,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!131 &896027698
 GUITexture:
   m_ObjectHideFlags: 0
@@ -257,6 +257,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 898604757}
   - 212: {fileID: 898604756}
+  - 114: {fileID: 898604755}
   m_Layer: 0
   m_Name: TitleBackground
   m_TagString: Untagged
@@ -264,6 +265,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &898604755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898604754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4804cbbb6795db14f9d391586ea3eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: TitleScene2
 --- !u!212 &898604756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -424,6 +437,10 @@ Prefab:
     - target: {fileID: 11447804, guid: 143c788785d6e1f44bfd2d8f7df4f41b, type: 2}
       propertyPath: fadeOut
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 176294, guid: 143c788785d6e1f44bfd2d8f7df4f41b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 143c788785d6e1f44bfd2d8f7df4f41b, type: 2}
