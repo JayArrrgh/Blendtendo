@@ -30,7 +30,7 @@ public class CoderKey : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D other) {
 		print ("Contact! " + name);
-		if (other.gameObject == CoderWeapon.Col2D) {
+		if (other == CoderWeapon.Col2D) {
 			print ("Layer! " + name);
 			CoderKeyboard.InterpretKeyPress (this);
 		}
