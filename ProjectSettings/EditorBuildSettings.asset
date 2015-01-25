@@ -13,3 +13,9 @@ EditorBuildSettings:
     path: Assets/Level_MainMenu/Scenes/MenuScene.unity
   - enabled: 1
     path: Assets/Level_MainMenu/Scenes/TestScene.unity
+  - enabled: 1
+    path: Assets/Scenes/Chef.unity
+  - enabled: 1
+    path: Assets/Level_Counselor/Counselor.unity
+  - enabled: 1
+    path: Assets/Level_Programmer/Scene/Programmer.unity

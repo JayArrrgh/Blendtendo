@@ -5,8 +5,8 @@ public class SceneFadeInOut : MonoBehaviour {
 
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
 	public string scene;
-	public bool fadeOutOnClick;
 	private bool loadLock = false;
+	public bool fadeOut;
 	
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	private bool sceneEnding = false;
@@ -26,10 +26,10 @@ public class SceneFadeInOut : MonoBehaviour {
 			// ... call the StartScene function.
 			StartScene ();
 		}
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && fadeOut) {
 			sceneEnding = true;
 		}
-		if(sceneEnding && fadeOutOnClick){ 
+		if(sceneEnding){ 
 			EndScene ();
 		}
 	}
@@ -41,13 +41,7 @@ public class SceneFadeInOut : MonoBehaviour {
 		guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
 	}
 
-	void OnTriggerEnter2D(Collider2D target){
-		/*if (target.gameObject.tag == "Player") {
-			if (loadLock == true){
-				StartCoroutine( LoadSceneDelayed());
-			}
-		}*/
-	}
+
 	
 	
 	void FadeToBlack ()
@@ -73,10 +67,6 @@ public class SceneFadeInOut : MonoBehaviour {
 			sceneStarting = false;
 		}
 	}
-
-	void OnMouseDown(){
-		sceneEnding = true;
-		}
 	
 	public void EndScene ()
 	{

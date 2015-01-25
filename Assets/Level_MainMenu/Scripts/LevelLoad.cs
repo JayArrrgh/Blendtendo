@@ -5,7 +5,6 @@ public class LevelLoad : MonoBehaviour {
 
 	public string scene;
 	public float time;
-	public bool active;
 	
 	private bool loadLock = false;
 
@@ -33,7 +32,7 @@ public class LevelLoad : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag == "Player") {
+		if (target.gameObject.tag == "Player" ) {
 			if (loadLock == true){
 				StartCoroutine( LoadSceneDelayed());
 			}

@@ -3,10 +3,13 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
+	public Transform sightStart, sightEnd;
 	int directionX = 0;
 	public float speed = 1f;
+	public bool needsCollision = true;
 
 	private Animator animator;
+	private bool collision = false;
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();	
@@ -29,16 +32,20 @@ public class PlayerMovement : MonoBehaviour {
 //				directionX = 0;
 //				animator.SetInteger ("AnimState", 0);
 //			}
-			if(mouseClick.x == transform.position.x){
-				directionX = 0;
-				animator.SetInteger ("AnimState", 0);
-			} else if(mouseClick.x - transform.position.x > 0.1f){
+
+
+
+			if(mouseClick.x - transform.position.x > 0.1f){
 				directionX = 1;
 				animator.SetInteger ("AnimState", 2);
 
 			} else if (mouseClick.x - transform.position.x < 0.1f) {
 				directionX = -1;
 				animator.SetInteger ("AnimState", 1);
+			} else {
+				directionX = 0;
+				animator.SetInteger ("AnimState", 0);
+				//print ("standing");
 			} 
 		}
 
@@ -46,4 +53,11 @@ public class PlayerMovement : MonoBehaviour {
 			transform.Translate(directionX * speed * Time.deltaTime,0,0);
 		}
 	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.tag=="Wall")
+			directionX = 0;
+			animator.SetInteger ("AnimState", 0);    
+    }
 }
