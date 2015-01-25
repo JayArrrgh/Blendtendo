@@ -16,6 +16,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chef.unity
   - enabled: 1
-    path: Assets/Level_Counselor/Counselor.unity
+    path: Assets/Level_Counselor/Scene/Counselor.unity
   - enabled: 1
     path: Assets/Level_Programmer/Scene/Programmer.unity

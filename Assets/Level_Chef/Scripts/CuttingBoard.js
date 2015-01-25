@@ -5,7 +5,7 @@ public class CuttingBoard extends MonoBehaviour
   function Start()
   {
     // Move chicken back to initial point.
-    food.reset();
+    //food.reset();
   }
 
   function Update()
