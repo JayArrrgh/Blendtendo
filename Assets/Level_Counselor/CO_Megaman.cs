@@ -16,13 +16,13 @@ public class CO_Megaman
 	public CO_Megaman()
 	{
 
-	dialogue[0] = "This is the first choice";
-	dialogue[1] = "This is the second choice";
-	dialogue[2] = "Third choice.";
-	dialogue[3] = "Fourth choice.";
+	dialogue[0] = "Destroy the parasite with a Fireball spell!";
+	dialogue[1] = "Wield thine axe to smite this knave asunder!";
+	dialogue[2] = "Sell this rare creature to a merchant for a high price.";
+	dialogue[3] = "Talk with your partner and clearly communicate what you want out of the relationship.";
 
 	outcome[0] = false;
-	outcome[1] = true;
+	outcome[1] = false;
 	outcome[2] = false;
 	outcome[3] = true;
 	}

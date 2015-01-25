@@ -8,7 +8,7 @@ public class CO_NPC
 
 	public CO_NPC()
 	{
-		NPCDialogue[0] = "This Metroid has coupled with my head. I don't think that it is really in love with me, and I am certainly not in love with it. What should I do?";
+		NPCDialogue[0] = "This Metroid paired with my head. It says it loves me, and that I am the only one for it. I'm having fun, but I don't want anything serious. What should I do?";
 	}
 
 	public string GetDialogue(int choice)

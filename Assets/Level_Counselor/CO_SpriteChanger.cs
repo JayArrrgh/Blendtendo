@@ -13,7 +13,7 @@ public class CO_SpriteChanger : MonoBehaviour
 
 	public void ChangeSprite(bool spriteChoice)
 	{
-		sprite = GameObject.Find("StubbedNPC");
+		sprite = GameObject.Find("Metroid couch");
 
 		render = sprite.GetComponent<SpriteRenderer>();
 

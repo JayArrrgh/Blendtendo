@@ -15,11 +15,17 @@ public class CO_UI_TextTyping : MonoBehaviour
 
 	string dialogue;
 
+	GameObject obj;
+
+	CanvasGroup therapizeCG;
+
 	void Start()
 	{
 		text = GetComponent<Text>();
 		dialogue = npc.GetDialogue(NPCDialogueChoice);
 		text.text = "";
+		obj = GameObject.Find("Therapize CanvasGroup");
+		therapizeCG = obj.GetComponent<CanvasGroup>();
 		StartCoroutine(TypeText());
 	}
 
@@ -31,6 +37,8 @@ public class CO_UI_TextTyping : MonoBehaviour
 			text.text += letter;
 			yield return new WaitForSeconds(typingSpeed);
 		}
+		therapizeCG.alpha = 1.0f;
+		therapizeCG.interactable = true;
 	}
 
 }

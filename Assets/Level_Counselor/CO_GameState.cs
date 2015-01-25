@@ -20,28 +20,89 @@ public class CO_GameState : MonoBehaviour
 
 	private CO_SpriteChanger changer;
 
-	private AudioSource audio;
+	bool done = false;
+
+	// audio stuff
+
+	public AudioSource winSound;
+
+	public AudioSource lossSound;
+
+	public AudioSource therapizeSound;
+
+	public AudioClip therapizeClip;
+
+	public AudioSource music;
+
+	public AudioSource dialogueSelect;
+
+	public AudioClip dialogueClip;
+
+	public void PlayMusic()
+	{
+		music.Play();
+	}
+
+	public void PlayTherapize()
+	{
+		therapizeSound.PlayOneShot(therapizeClip, 2.0f);
+	}
+
+	public void PlayDialogueSelect()
+	{
+		dialogueSelect.Play();
+	}
+
+	public void PlayWinSound()
+	{
+		winSound.Play();
+	}
+
+	public void PlayLossSound()
+	{
+		lossSound.Play();
+	}
+
+	public void StopMusic()
+	{
+		if (music.isPlaying)
+			music.Stop();
+	}
+
+	public void StopDialogueMusic()
+	{
+		if (dialogueSelect.isPlaying)
+			dialogueSelect.Stop();
+	}
+
 
 	public void ResolvePlayerChoice(int choice)
 	{
 		changer = GetComponent<CO_SpriteChanger>();
-		audio = GameObject.Find("StubbedSound").GetComponent<AudioSource>();
+
+		//StartCoroutine(DialogueTransition());
 
 		if (megaman.GetOutcome(choice) == true)
 		{
 			// end the game in the success state
-			Debug.Log ("You won!");
 			changer.ChangeSprite(true);
-			audio.Play();
+			music.Stop();
+			PlayWinSound();
 		}
 		else
 		{
 			// end the game in the fail state
-			Debug.Log ("You lost!");
 			changer.ChangeSprite(false);
+			music.Stop();
+			PlayLossSound();
 		}
 	}
 
-
+	IEnumerator DialogueTransition()
+	{
+		PlayDialogueSelect();
+		yield return new WaitForSeconds(dialogueClip.length + 2.0f);
+		done = true;
+	}
 
 }
