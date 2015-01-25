@@ -25,15 +25,11 @@ public class CoderKey : MonoBehaviour {
 		
 	#region Events
 	void OnMouseDown () {
-		CoderWeapon.HitKey(transform);
+		CoderWeapon.TargetKey(this);
 	}
 	
-	void OnTriggerEnter2D (Collider2D other) {
-		print ("Contact! " + name);
-		if (other == CoderWeapon.Col2D) {
-			print ("Layer! " + name);
-			CoderKeyboard.InterpretKeyPress (this);
-		}
+	public void GetHit () {
+		CoderKeyboard.InterpretKeyPress (this);
 	}
 	#endregion
 }
