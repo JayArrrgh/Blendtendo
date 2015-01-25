@@ -24,18 +24,13 @@ public class CO_GameState : MonoBehaviour
 	}
 
 
-	public void DisplayPlayerDialogue()
-	{
-
-	}
-
-
 	public void ResolvePlayerChoice(int choice)
 	{
 		if (megaman.GetOutcome(choice) == true)
 		{
 			// end the game in the success state
 			Debug.Log ("You won!");
+
 		}
 		else
 		{

@@ -1,36 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CO_TextTyping
-{/*
+public class CO_TextTyping : MonoBehaviour
+{
 	// Interval between each letter being typed in a string of text.
 	public float typingSpeed;
 
-	public CO_Megaman megaman = new CO_Megaman();
-	
-	// Creates a blank string and adds characters to it from the desired piece of dialogue text.
-	IEnumerator TypeText(int dialogue)
+	private int iterations = 0;
+
+	private string typingText = "";
+
+	// Creates a blank string and adds characters to it from the provided piece of dialogue text.
+	public void TypeText(string line)
 	{
-		string typingText = "";
+		string textToType = line;
+		typingText += textToType[iterations];
+		iterations++;
 
-		string textToType = megaman.GetDialogue(dialogue);
-
-		for (int i = 0, i < textToType.Length, i++)
+		if (iterations < line.Length)
 		{
-			typingText += textToType[i];
-			yield return new WaitForSeconds(typingSpeed);
-			ReturnText(typingText);
+			InvokeRepeating("TypeText", 0, typingSpeed);
 		}
-
 
 	}
 
 	// This method is necessary to return the string being made above.
 
-	public string ReturnText(string text)
+	public string ReturnText()
 	{
-		return text;
+		return typingText;
 	}
-*/
+
 
 }

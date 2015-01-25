@@ -35,8 +35,8 @@ public class CO_Megaman
 	}
 	
 	
-	// Retrieves the outcome (pass/fail) of a dialogue choice.
-	// The int passed in here should match the same number of the desired dialogue choice.
+	// Retrieves the outcome (pass/fail) of the provided dialogue choice.
+	//
 	
 	public bool GetOutcome (int outcome_choice)
 	{
