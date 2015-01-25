@@ -9,6 +9,8 @@ public class Main extends MonoBehaviour
   
   public static var totalTime : float = 30;
   public static var timeLeft : float = 0;
+  
+  public var musicClip : AudioClip;
 
   function Start()
   {
@@ -20,7 +22,11 @@ public class Main extends MonoBehaviour
     // Set timer.
     timeLeft = totalTime;
     
-    // TODO: Start music.
+    // Start music.
+    if( musicClip != null )
+    {
+      AudioSource.PlayClipAtPoint( musicClip, transform.position );
+    }
   }
 
   function Update()
