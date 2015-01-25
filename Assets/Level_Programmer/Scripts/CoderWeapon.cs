@@ -17,11 +17,12 @@ public class CoderWeapon : MonoBehaviour {
 		if (instance.animation.isPlaying) {
 			instance.animation.Stop ();
 		}
-		instance.animation.Play();
+		instance.animation.Play("AxeSwing-" + key.name);
 	}
 	public void HitKey () {
 		Camera.main.animation.Play("Camera jerk");
 		instance.targetKey.GetHit();
+		CoderDestroyableWorkstation.Damage();
 	}
 	#endregion
 	

@@ -75,10 +75,7 @@ public class CoderKeyboard : MonoBehaviour {
 		else if (key == ActiveKey) {
 			key.Deactivate();
 			CoderOutput.PrintLine();
-			
-			// Tell GameManager or whatever about the success
-			//////////////PUT THIS IN//////////////////////
-			
+			CoderScoreboard.GetPoint();
 			ActivateKey(PickRandomKeyNoRepeats());
 		}
 		else {
@@ -89,7 +86,8 @@ public class CoderKeyboard : MonoBehaviour {
 			DeactivateKey(ActiveKey);
 			CoderOutput.PrintError();
 			ActivateKey(BackspaceKey);
-			ErrorCount++;
+			ErrorCount = 1; // Track all errors with single boolean
+			// ErrorCount++; // Track each error individually
 		}
 	}
 	

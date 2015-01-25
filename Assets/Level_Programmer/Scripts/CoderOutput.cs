@@ -25,19 +25,6 @@ public class CoderOutput : MonoBehaviour {
 		InvokeRepeating("UpdateCharacter", 0f, textUpdateRate);
 	}
 	
-	void Update () {
-		// Testing
-		if (Input.GetKeyDown(KeyCode.A)) {
-			PrintLine ();
-		}
-		if (Input.GetKeyDown(KeyCode.S)) {
-			PrintError ();
-		}
-		if (Input.GetKeyDown(KeyCode.D)) {
-			DeleteError ();
-		}
-	}
-	
 	#region Public methods
 	public static void PrintLine () {
 		instance.MyPrintLine();
@@ -76,7 +63,8 @@ public class CoderOutput : MonoBehaviour {
 		
 		int index = current.LastIndexOf(errorLine);
 		if (index != -1) {
-			current = current.Substring(0, index);
+			//current = current.Substring(0, index); // Only removes last error
+			current = current.Replace(errorLine, ""); // Removes all errors
 		}
 		else {
 			Debug.LogError("Tried to remove errorLine but couldn't find it in the text");
