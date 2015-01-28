@@ -1,42 +1,43 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
-public class CuttingBoard extends MonoBehaviour
+public class ChefCuttingBoard : MonoBehaviour
 {
-  function Start()
+	void Start()
   {
     // Move chicken back to initial point.
     //food.reset();
   }
 
-  function Update()
+  void Update()
   {
     
   }
   
-  function OnTriggerEnter2D( other: Collider2D )
+  void OnTriggerEnter2D( Collider2D other )
   {
-    var otherName : String = other.name;
+    string otherName = other.name;
     if( otherName.Contains( "Chicken" ) ) // NOTE: This is super sensitive bad coding!
     {
       print( otherName );
-      var food : Food = other.GetComponent( Food );
+      ChefFood food = other.GetComponent<ChefFood>();
       if( food != null )
       {
         // Determine if food is raw, cooked, or overcooked.
         // Update user score.
         if( food.cookedLevel < 0.5 || food.cookedLevel > 1.0 )
         {
-          Main.NumberOfBadFoodPrepared++;
+          ChefMain.NumberOfBadFoodPrepared++;
         }
         else
         {
-          Main.NumberOfGoodFoodPrepared++;
+          ChefMain.NumberOfGoodFoodPrepared++;
         }
       }
     }
   }
-  
-  function OnTriggerExit2D( other : Collider2D )
+
+  void OnTriggerExit2D( Collider2D other )
   {
     //associate( null );
   }

@@ -1,33 +1,34 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
-public class Pan extends MonoBehaviour
+public class ChefPan : MonoBehaviour
 {
-  public var heatLevel : float = 0.0f;
-  public var appliedHeatLevel : float = 0.0f;
+	public float heatLevel = 0.0f;
+  public float appliedHeatLevel = 0.0f;
 
-  protected var burner : StoveElement = null;
+  protected ChefStoveElement burner = null;
   
-  public var handle : GameObject;
+  public GameObject handle;
   
-  public var heatResistance : float = 0.4f;
+  public float heatResistance = 0.4f;
   
-  private var dragging : boolean = false;
-  private var panCenterToDragPointDistance : Vector3;
+  private bool dragging = false;
+  private Vector3 panCenterToDragPointDistance;
 
-  function Start()
+  void Start()
   {
     
   }
 
-  function Update()
+  void Update()
   {
     // Transfer heat slowly.
     if( heatLevel != appliedHeatLevel )
     {
-      heatLevel = HeatTransferUtility.caculateNewHeatLevel( heatLevel, appliedHeatLevel, heatResistance );
+      heatLevel = ChefHeatTransferUtility.caculateNewHeatLevel( heatLevel, appliedHeatLevel, heatResistance );
       
       // Update tint of pot, based on heatLevel.
-      var spriteRenderer : SpriteRenderer = GetComponent( SpriteRenderer );
+      SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
       if( spriteRenderer != null )
       {
         spriteRenderer.color = Color.Lerp( Color.white, Color.red, heatLevel / 20.0f );
@@ -35,7 +36,7 @@ public class Pan extends MonoBehaviour
     }
   
     // TODO: Check if pan has (food) contents.
-    if( false )
+    //if( false )
     {
       //var food : Food = getFoodContents();
       
@@ -44,24 +45,24 @@ public class Pan extends MonoBehaviour
     }
   }
   
-  function OnMouseDown()
+  void OnMouseDown()
   {
     //print( "mouse down" );
   }
   
-  function OnMouseUp()
+  void OnMouseUp()
   {
     //print( "mouse up" );
     dragging = false;
     panCenterToDragPointDistance = Vector3.zero;
   }
   
-  function OnMouseDrag()
+  void OnMouseDrag()
   {
     //print( "drag'n" );
     
-    var curScreenPoint : Vector3 = new Vector3( Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z );
-    var curPosition :    Vector3 = Camera.main.ScreenToWorldPoint( curScreenPoint );
+    Vector3 curScreenPoint = new Vector3( Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z );
+    Vector3 curPosition = Camera.main.ScreenToWorldPoint( curScreenPoint );
     curPosition.z = 0.0f; // NOTE: Weird 2D plane stuff!!!
   
     if( !dragging )
@@ -80,7 +81,7 @@ public class Pan extends MonoBehaviour
     transform.position = curPosition + panCenterToDragPointDistance;
   }
   
-  public function associateBurnerWithPan( newBurner : StoveElement )
+  public void associateBurnerWithPan( ChefStoveElement newBurner )
   {
     //print( "associate" );
     burner = newBurner;
@@ -93,13 +94,13 @@ public class Pan extends MonoBehaviour
     // TODO: Orient pan a handle?
   }
   
-  function OnTriggerEnter2D( other: Collider2D )
+  void OnTriggerEnter2D( Collider2D other )
   {
-    var otherName : String = other.name;
+    string otherName = other.name;
     if( otherName.Contains( "StoveElement" ) ) // NOTE: This is super sensitive bad coding!
     {
       //print( otherName );
-      var burner : StoveElement = other.GetComponent( StoveElement );
+      ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
       if( burner != null )
       {
         associateBurnerWithPan( burner );
@@ -113,12 +114,12 @@ public class Pan extends MonoBehaviour
     //if( collider.tag
   }
   
-  function OnTriggerExit2D( other : Collider2D )
+  void OnTriggerExit2D( Collider2D other )
   {
     associateBurnerWithPan( null );
   }
   
-  public function applyHeatLevel( newHeatLevel : float )
+  public void applyHeatLevel( float newHeatLevel )
   {
     appliedHeatLevel = newHeatLevel;
   }

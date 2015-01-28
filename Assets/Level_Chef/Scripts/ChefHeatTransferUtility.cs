@@ -1,19 +1,20 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
-public class HeatTransferUtility extends MonoBehaviour
+public class ChefHeatTransferUtility : MonoBehaviour
 {
-  public static var minHeatLevel : float = 0.0f;
-  public static var maxHeadLevel : float = 10.0f;
-  public static var heatSlowdownWeight : float = 0.5f;
+	public static float minHeatLevel = 0.0f;
+  public static float maxHeadLevel = 10.0f;
+  public static float heatSlowdownWeight = 0.5f;
 
-  public static function caculateNewHeatLevel( heatLevel : float, appliedHeatLevel : float, heatResistance : float ) : float
+  public static float caculateNewHeatLevel( float heatLevel, float appliedHeatLevel, float heatResistance )
   {
     if( heatLevel == appliedHeatLevel )
     {
       return heatLevel;
     }
   
-    var heatIncrement : float = heatResistance / 20.0f;
+    float heatIncrement = heatResistance / 20.0f;
     if( heatLevel < appliedHeatLevel )
     {
       heatLevel += heatIncrement;

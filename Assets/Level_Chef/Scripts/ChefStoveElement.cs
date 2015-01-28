@@ -1,15 +1,16 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
-public class StoveElement extends MonoBehaviour
+public class ChefStoveElement : MonoBehaviour
 {
-  protected var on : boolean = false;
-  protected var heatLevel : float = 0.0f;
+	protected bool on = false;
+  protected float heatLevel = 0.0f;
   
-  public var flame : Flame;
+  public ChefFlame flame;
   
-  protected var pan : Pan = null;
+  protected ChefPan pan = null;
 
-  function Update()
+  void Update()
   {
     turnOn( on );
     if( flame != null )
@@ -18,7 +19,7 @@ public class StoveElement extends MonoBehaviour
     }
   }
   
-  public function turnOn( newOn : boolean )
+  public void turnOn( bool newOn )
   {
     on = newOn;
     
@@ -29,7 +30,7 @@ public class StoveElement extends MonoBehaviour
     }
   }
   
-  public function setHeatLevel( newHeatLevel : float )
+  public void setHeatLevel( float newHeatLevel )
   {
     heatLevel = newHeatLevel;
     
@@ -39,12 +40,12 @@ public class StoveElement extends MonoBehaviour
     }
   }
   
-  public function getPan() : Pan
+  public ChefPan getPan()
   {
     return pan;
   }
   
-  public function setPan( newPan : Pan ) : boolean
+  public bool setPan( ChefPan newPan )
   {
     if( pan != null )
     {

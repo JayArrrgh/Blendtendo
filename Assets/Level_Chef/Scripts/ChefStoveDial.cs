@@ -1,34 +1,35 @@
-﻿#pragma strict
+﻿using UnityEngine;
+using System.Collections;
 
-public class StoveDial extends MonoBehaviour
+public class ChefStoveDial : MonoBehaviour
 {
-  public var on : boolean = false;
+	public bool on = false;
 
-  public var level : float = 0.0f;
-  public var minLevel : float = 0.0f;
-  public var maxLevel : float = 7.0f;
-  public var levelTickIncrement : float = 1.0f;
+  public float level = 0.0f;
+  public float minLevel = 0.0f;
+  public float maxLevel = 7.0f;
+  public float levelTickIncrement = 1.0f;
   
-  protected var rotationAngle : float = 0.0;
-  protected var dragging : boolean = false;
-  protected var dragAnchorPoint : Vector3;
-  protected var dragAnchorRotationAngle : float = 0.0f;
+  protected float rotationAngle = 0.0f;
+  protected bool dragging = false;
+  protected Vector3 dragAnchorPoint;
+  protected float dragAnchorRotationAngle = 0.0f;
 
-  public var stoveElement : StoveElement;
+  public ChefStoveElement stoveElement;
 
-  function Start()
+  void Start()
   {
     // Rotate to default angle.
     
     dragAnchorPoint = Vector3.zero;
   }
 
-  function Update()
+  void Update()
   {
     
   }
   
-  public function OnMouseDown()
+  public void OnMouseDown()
   {
     /*on = !on;
     
@@ -39,7 +40,7 @@ public class StoveDial extends MonoBehaviour
     */
   }
   
-  function OnMouseUp()
+  void OnMouseUp()
   {
     //print( "mouse up" );
     dragging = false;
@@ -47,12 +48,12 @@ public class StoveDial extends MonoBehaviour
     dragAnchorRotationAngle = 0.0f;
   }
   
-  function OnMouseDrag()
+  void OnMouseDrag()
   {
     //print( "drag'n" );
     
-    var curScreenPoint : Vector3 = new Vector3( Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z );
-    var curPosition :    Vector3 = Camera.main.ScreenToWorldPoint( curScreenPoint );
+    Vector3 curScreenPoint = new Vector3( Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z );
+    Vector3 curPosition = Camera.main.ScreenToWorldPoint( curScreenPoint );
     curPosition.z = 0.0f; // NOTE: Weird 2D plane stuff!!!
   
     if( !dragging )
@@ -64,10 +65,10 @@ public class StoveDial extends MonoBehaviour
       dragAnchorRotationAngle = levelToAngle( level );
     }
     
-    var dragPointDistanceFromAnchor : Vector3 = curPosition - dragAnchorPoint;
+    Vector3 dragPointDistanceFromAnchor = curPosition - dragAnchorPoint;
     
     // Drag from dial distance to rotationAngle.
-    var totalAngleFromXDrag : float = dragPointDistanceFromAnchor.x / 0.0125f;
+    float totalAngleFromXDrag = dragPointDistanceFromAnchor.x / 0.0125f;
     
     // Get new level from dial rotation.
     level = angleToLevel( dragAnchorRotationAngle + totalAngleFromXDrag );
@@ -93,42 +94,42 @@ public class StoveDial extends MonoBehaviour
       stoveElement.turnOn( on );
       
       // Level to heat level.
-      var heatLevel : float = level / maxLevel * 10.0f;
+      float heatLevel = level / maxLevel * 10.0f;
       stoveElement.setHeatLevel( heatLevel );
     }
   }
   
-  public function rotateToLevel( newLevel : float )
+  public void rotateToLevel( float newLevel )
   {
     // TODO: Rotate dial to max level tick.
     transform.rotation = Quaternion.identity;
     
     // Set new angle.
-    var angle : float = levelToAngle( newLevel );
+    float angle = levelToAngle( newLevel );
     //print( "Level/Angle" + newLevel + ":" + angle );
     
-    transform.eulerAngles = Vector3( 0.0f, 0.0f, -angle );
+    transform.eulerAngles = new Vector3( 0.0f, 0.0f, -angle );
   }
   
-  protected function anglePerTick() : float
+  protected float anglePerTick()
   {
     // TODO: Should probably be preprocessed.
   
-    var numberOfTicks : int = maxLevel / levelTickIncrement;
+    int numberOfTicks = ( int )( maxLevel / levelTickIncrement );
     //print( "" + numberOfTicks );
     
-    var anglePerTick : float = 360.0f / ( numberOfTicks + 1 );
+    float anglePerTick = 360.0f / ( numberOfTicks + 1 );
     //print( "" + anglePerTick );
     
     return anglePerTick;
   }
   
-  protected function angleToLevel( inputAngle : float ) : float
+  protected float angleToLevel( float inputAngle )
   {
     return inputAngle / anglePerTick();
   }
   
-  protected function levelToAngle( inputLevel : float ) : float
+  protected float levelToAngle( float inputLevel )
   {
     return inputLevel * anglePerTick();
   }

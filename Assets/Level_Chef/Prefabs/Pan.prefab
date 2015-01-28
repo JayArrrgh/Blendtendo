@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 455694}
   - 212: {fileID: 21255694}
   - 58: {fileID: 5804346}
-  - 114: {fileID: 11440926}
   - 50: {fileID: 5015306}
+  - 114: {fileID: 11455056}
   m_Layer: 0
   m_Name: Pan
   m_TagString: Pan1
@@ -28,7 +28,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 479362}
   - 61: {fileID: 6140926}
-  - 114: {fileID: 11440924}
   - 61: {fileID: 6122366}
   m_Layer: 0
   m_Name: PanHandle
@@ -44,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155694}
   m_LocalRotation: {x: 0, y: 0, z: .99619472, w: .087155804}
-  m_LocalPosition: {x: 3, y: 2.5, z: 0}
-  m_LocalScale: {x: 1.39999998, y: 1.39999998, z: 1}
+  m_LocalPosition: {x: 2.52999997, y: 2.1099999, z: 0}
+  m_LocalScale: {x: .895265877, y: .895265877, z: .639475644}
   m_Children:
   - {fileID: 479362}
   m_Father: {fileID: 0}
@@ -110,19 +109,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1.41037333, y: .294500858}
   m_Center: {x: -.0407676697, y: -.020194184}
---- !u!114 &11440924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d29210265a956347b9021e3c394430f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pan: {fileID: 11440926}
---- !u!114 &11440926
+--- !u!114 &11455056
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -130,10 +117,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 155694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d543367277719469c69facc1a16741, type: 3}
+  m_Script: {fileID: 11500000, guid: fa767ceb1be03ca4da94552caee6a946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handle: {fileID: 179362}
+  heatLevel: 0
+  appliedHeatLevel: 0
+  handle: {fileID: 0}
+  heatResistance: .400000006
 --- !u!212 &21255694
 SpriteRenderer:
   m_ObjectHideFlags: 1
