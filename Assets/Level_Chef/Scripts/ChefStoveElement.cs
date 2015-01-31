@@ -8,9 +8,9 @@ public class ChefStoveElement : ChefEntity
   
   public ChefFlame flame;
   
-  protected ChefPan pan = null;
+  public ChefPan pan = null;
 
-  void Update()
+  void FixedUpdate()
   {
     turnOn( on );
     if( flame != null )
@@ -45,15 +45,22 @@ public class ChefStoveElement : ChefEntity
     return pan;
   }
   
-  public bool setPan( ChefPan newPan )
+  public bool setPan( ChefPan pan )
   {
-    if( pan != null )
+    if( pan == null )
+    {
+      // Clear this burner's pan in this case.
+      this.pan = null;
+    }
+
+    // Incoming pan.
+    if( this.pan != null )
     {
       // TODO: Do something clever, as there is already a pan here?
       return false;
     }
     
-    pan = newPan;
+    this.pan = pan;
     
     return true;
   }

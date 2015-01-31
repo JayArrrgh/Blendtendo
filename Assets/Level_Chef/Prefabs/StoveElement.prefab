@@ -30,7 +30,7 @@ GameObject:
   - 212: {fileID: 21296874}
   - 114: {fileID: 11496872}
   m_Layer: 0
-  m_Name: FlameBr
+  m_Name: FlameTl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.36999989, y: -1.13, z: 0}
+  m_LocalPosition: {x: -2.36999989, y: 2.11999989, z: 0}
   m_LocalScale: {x: 1.07825577, y: 1.07825649, z: 1.07825649}
   m_Children:
   - {fileID: 496874}
@@ -85,7 +85,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 1.20701873
+  m_Radius: .800025761
   m_Center: {x: 0, y: 0}
 --- !u!114 &11496872
 MonoBehaviour:

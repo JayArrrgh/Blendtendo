@@ -16,7 +16,7 @@ public class ChefFlame : MonoBehaviour
     turnOn( on );
   }
 
-  void Update()
+  void FixedUpdate()
   {
     // Check if flame is on.
     /*if( !on )
@@ -39,6 +39,7 @@ public class ChefFlame : MonoBehaviour
       if( pan != null )
       {
         // If pan is present, heat it up.
+        //print( gameObject.name + " is applying heat to pan" );
         pan.applyHeatLevel( heatLevel );
       }
     }

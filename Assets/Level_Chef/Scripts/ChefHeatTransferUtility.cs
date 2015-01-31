@@ -14,7 +14,7 @@ public class ChefHeatTransferUtility : MonoBehaviour
       return heatLevel;
     }
   
-    float heatIncrement = heatResistance / 20.0f;
+    float heatIncrement = heatResistance / 1.0f;
     if( heatLevel < appliedHeatLevel )
     {
       heatLevel += heatIncrement;

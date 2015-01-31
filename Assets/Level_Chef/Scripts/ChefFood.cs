@@ -23,7 +23,7 @@ public class ChefFood : ChefEntity
     reset();
   }
 
-  void Update()
+  void FixedUpdate()
   {
     // Transfer heat slowly.
     if( heatLevel != appliedHeatLevel )
@@ -80,19 +80,6 @@ public class ChefFood : ChefEntity
     }
     
     transform.position = curPosition;
-  }
-  
-  public void associateBurnerWithPan( ChefStoveElement newBurner )
-  {
-    //print( "associate" );
-    //burner = newBurner;
-    
-    if( newBurner != null )
-    {
-      //newBurner.setPan( this );
-    }
-
-    // TODO: Orient pan a handle?
   }
   
   void OnTriggerEnter2D( Collider2D other )

@@ -5,8 +5,6 @@ public class ChefPan : ChefFoodReceptacle
 {
 	public float heatLevel = 0.0f;
   public float appliedHeatLevel = 0.0f;
-
-  protected ChefStoveElement burner = null;
   
   public GameObject handle;
   
@@ -20,7 +18,7 @@ public class ChefPan : ChefFoodReceptacle
     
   }
 
-  void Update()
+  void FixedUpdate()
   {
     // Transfer heat slowly.
     if( heatLevel != appliedHeatLevel )
@@ -81,42 +79,49 @@ public class ChefPan : ChefFoodReceptacle
     transform.position = curPosition + panCenterToDragPointDistance;
   }
   
-  public void associateBurnerWithPan( ChefStoveElement newBurner )
-  {
-    //print( "associate" );
-    burner = newBurner;
-    
-    if( newBurner != null )
-    {
-      newBurner.setPan( this );
-    }
-
-    // TODO: Orient pan a handle?
-  }
-  
   void OnTriggerEnter2D( Collider2D other )
   {
     string otherName = other.name;
     if( otherName.Contains( "StoveElement" ) ) // NOTE: This is super sensitive bad coding!
     {
-      //print( otherName );
       ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
       if( burner != null )
       {
-        associateBurnerWithPan( burner );
+        print( "Pan entering: " + otherName );
+      
+        burner.setPan( this );
       }
     }
-    else
+  }
+
+  void OnTriggerStay2D( Collider2D other )
+  {
+    string otherName = other.name;
+    if( otherName.Contains( "StoveElement" ) ) // NOTE: This is super sensitive bad coding!
     {
-      //print( otherName );
+      ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
+      if( burner != null )
+      {
+        //print( "Pan staying: " + otherName );
+
+        burner.setPan( this );
+      }
     }
-    
-    //if( collider.tag
   }
   
   void OnTriggerExit2D( Collider2D other )
   {
-    associateBurnerWithPan( null );
+    string otherName = other.name;
+    if( otherName.Contains( "StoveElement" ) ) // NOTE: This is super sensitive bad coding!
+    {
+      ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
+      if( burner != null )
+      {
+        print( "Pan exiting: " + otherName );
+
+        burner.setPan( null );
+      }
+    }
   }
   
   public void applyHeatLevel( float newHeatLevel )
