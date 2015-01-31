@@ -29,17 +29,6 @@ public class ChefStoveDial : MonoBehaviour
     
   }
   
-  public void OnMouseDown()
-  {
-    /*on = !on;
-    
-    // TODO: For the time being, just turn burner on or off.
-    
-    level = on ? maxLevel : minLevel;
-    rotateToLevel( level );
-    */
-  }
-  
   void OnMouseUp()
   {
     //print( "mouse up" );

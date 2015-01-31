@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21270726}
   - 58: {fileID: 5870726}
   - 114: {fileID: 11470726}
+  - 50: {fileID: 5055936}
   m_Layer: 0
   m_Name: StoveDial
   m_TagString: Untagged
@@ -30,6 +31,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5055936
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170726}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!58 &5870726
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -38,8 +54,8 @@ CircleCollider2D:
   m_GameObject: {fileID: 170726}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: 1.125
+  m_IsTrigger: 1
+  m_Radius: .855680168
   m_Center: {x: 0, y: 0}
 --- !u!114 &11470726
 MonoBehaviour:
@@ -57,7 +73,7 @@ MonoBehaviour:
   minLevel: 0
   maxLevel: 7
   levelTickIncrement: 1
-  stoveElement: {fileID: 11496874, guid: 680ba46772069cc41bc1fde540a33016, type: 2}
+  stoveElement: {fileID: 0}
 --- !u!212 &21270726
 SpriteRenderer:
   m_ObjectHideFlags: 1
