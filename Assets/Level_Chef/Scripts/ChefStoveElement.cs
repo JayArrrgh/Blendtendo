@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ChefStoveElement : MonoBehaviour
+public class ChefStoveElement : ChefEntity
 {
 	protected bool on = false;
   protected float heatLevel = 0.0f;

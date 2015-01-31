@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ChefStoveSurface : MonoBehaviour
+public class ChefStoveSurface : ChefEntity
 {
 	public static ChefStoveSurface reference;
 

@@ -1,44 +1,32 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ChefCuttingBoard : MonoBehaviour
+public class ChefCuttingBoard : ChefFoodReceptacle
 {
-	void Start()
+  public override bool addObject( ChefEntity entity )
   {
-    // Move chicken back to initial point.
-    //food.reset();
-  }
-
-  void Update()
-  {
-    
-  }
-  
-  void OnTriggerEnter2D( Collider2D other )
-  {
-    string otherName = other.name;
-    if( otherName.Contains( "Chicken" ) ) // NOTE: This is super sensitive bad coding!
+    // Should only be allowed to add ChefFood.
+    ChefFood food = entity as ChefFood;
+    if( food == null )
     {
-      print( otherName );
-      ChefFood food = other.GetComponent<ChefFood>();
-      if( food != null )
-      {
-        // Determine if food is raw, cooked, or overcooked.
-        // Update user score.
-        if( food.cookedLevel < 0.5 || food.cookedLevel > 1.0 )
-        {
-          ChefMain.NumberOfBadFoodPrepared++;
-        }
-        else
-        {
-          ChefMain.NumberOfGoodFoodPrepared++;
-        }
-      }
+      return false;
     }
-  }
 
-  void OnTriggerExit2D( Collider2D other )
-  {
-    //associate( null );
+    // Determine if food is raw, cooked, or overcooked.
+    // Update user score.
+    if( food.cookedLevel < 0.5 || food.cookedLevel > 1.0 )
+    {
+      ChefMain.NumberOfBadFoodPrepared++;
+      print( "Bad food prepared." );
+    }
+    else
+    {
+      ChefMain.NumberOfGoodFoodPrepared++;
+      print( "Good food prepared." );
+    }
+
+    food.reset();
+
+    return true;
   }
 }

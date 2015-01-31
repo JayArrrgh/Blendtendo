@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ChefFood : MonoBehaviour
+public class ChefFood : ChefEntity
 {
 	public float heatLevel = 0.0f;
   public float appliedHeatLevel = 0.0f;
@@ -105,6 +105,20 @@ public class ChefFood : MonoBehaviour
       if( curPan != null )
       {
         //curPan.associateFoodWithPan( curPan );
+      }
+    }
+  }
+  
+  void OnTriggerStay2D( Collider2D other )
+  {
+    if( !dragging )
+    {
+      // Put food in container.
+      ChefFoodReceptacle foodReceptacle = other.GetComponent<ChefFoodReceptacle>();
+      if( foodReceptacle != null )
+      {
+        foodReceptacle.addObject( this );
+        return;
       }
     }
   }

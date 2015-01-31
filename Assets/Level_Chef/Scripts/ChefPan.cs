@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ChefPan : MonoBehaviour
+public class ChefPan : ChefFoodReceptacle
 {
 	public float heatLevel = 0.0f;
   public float appliedHeatLevel = 0.0f;

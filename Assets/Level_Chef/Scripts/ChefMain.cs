@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ChefMain : MonoBehaviour
@@ -7,6 +7,7 @@ public class ChefMain : MonoBehaviour
 
   public static int NumberOfGoodFoodPrepared = 0;
   public static int NumberOfBadFoodPrepared = 0;
+  public static int NumberOfFoodThrownOut = 0;
   
   public static float totalTime = 30;
   public static float timeLeft = 0;
@@ -19,7 +20,8 @@ public class ChefMain : MonoBehaviour
   
     ChefMain.NumberOfGoodFoodPrepared = 0;
     ChefMain.NumberOfBadFoodPrepared = 0;
-    
+    ChefMain.NumberOfFoodThrownOut = 0;
+
     // Set timer.
     timeLeft = totalTime;
 
@@ -52,8 +54,9 @@ public class ChefMain : MonoBehaviour
   {
     int score = 0;
    
-    int numberOfTotalFoodPrepared =
-      ChefMain.NumberOfGoodFoodPrepared + ChefMain.NumberOfBadFoodPrepared; 
+    int numberOfTotalFoodPrepared = ChefMain.NumberOfGoodFoodPrepared +
+                                    ChefMain.NumberOfBadFoodPrepared +
+                                    ChefMain.NumberOfFoodThrownOut; 
     if( numberOfTotalFoodPrepared == 0 )
     {
       score = 0;
