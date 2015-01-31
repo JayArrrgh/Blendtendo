@@ -39,15 +39,7 @@ public class ChefMain : MonoBehaviour
   
   public static void SetScore( int score )
   {
-    //ScoreKeeper.SetGameStats( 1, score );
-    
-    // Damn, pulled this from ScoreKeeper::SetScore, because I suck and Unity Technologies suck.
-//    isPlayed : String = Application.loadedLevelName + "_Played";
-//    hasScore : String = Application.loadedLevelName + "_Score";
-//
-//    PlayerPrefs.SetInt(isPlayed, 1);
-//    PlayerPrefs.SetInt(hasScore, score);
-//    PlayerPrefs.Save();
+    ScoreKeeper.SetGameStats( 1, score );
   }
   
   public void ReturnToMenu()
