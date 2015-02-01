@@ -28,7 +28,7 @@ public class ChefMain : MonoBehaviour
     // Start music.
     if( musicClip != null )
     {
-      AudioSource.PlayClipAtPoint( musicClip, transform.position );
+      AudioSource.PlayClipAtPoint( musicClip, transform.position, 0.5f );
     }
   }
 

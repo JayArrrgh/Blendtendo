@@ -1472,8 +1472,6 @@ MonoBehaviour:
   cookedLevel: 0
   heatResistance: .400000006
   dragging: 0
-  cuttingBoard: {fileID: 0}
-  pan: {fileID: 0}
 --- !u!1 &992049386
 GameObject:
   m_ObjectHideFlags: 0

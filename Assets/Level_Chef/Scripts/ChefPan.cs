@@ -30,13 +30,22 @@ public class ChefPan : ChefFoodReceptacle
       }
     }
   
-    // TODO: Check if pan has (food) contents.
-    //if( false )
+    if( hasObjects() )
     {
-      //var food : Food = getFoodContents();
-      
-      // Apply this pan's heat level to the food.
-      //food.applyHeatLevel( heatLevel );
+      for( int i = 0; i < objectList.Count; i++ )
+      {
+        ChefEntity entity = objectList[i] as ChefEntity;
+        if( entity != null )
+        {
+          ChefFood food = entity as ChefFood;
+          if( food != null )
+          {
+            // Apply this pan's heat level to the food.
+            food.applyHeatLevel( heatLevel );
+          }
+        }
+      }
+
     }
   }
   

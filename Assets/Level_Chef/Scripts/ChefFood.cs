@@ -3,6 +3,11 @@ using System.Collections;
 
 public class ChefFood : ChefEntity
 {
+  public static float CookedLevelRaw        = 0.0f;
+  public static float CookedLevelCooked     = 0.5f;
+  public static float CookedLevelOverCooked = 0.7f;
+  public static float CookedLevelBurnt      = 1.0f;
+
 	public float heatLevel = 0.0f;
   public float appliedHeatLevel = 0.0f;
   
@@ -12,9 +17,6 @@ public class ChefFood : ChefEntity
   public bool dragging = false;
   
   protected Vector3 originPosition;
-  
-  public ChefCuttingBoard cuttingBoard = null;
-  public ChefPan pan = null;
 
   void Start()
   {
@@ -29,27 +31,41 @@ public class ChefFood : ChefEntity
     if( heatLevel != appliedHeatLevel )
     {
       heatLevel = ChefHeatTransferUtility.caculateNewHeatLevel( heatLevel, appliedHeatLevel, heatResistance );
-      
+    }
+
+    if( heatLevel > 0.0f )
+    {
+      cookedLevel += 0.0001f * heatLevel / heatResistance;
+      if( cookedLevel >= 1.0f )
+      {
+        cookedLevel = 1.0f;
+      }
+
       // Update tint of pot, based on heatLevel.
       SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
       if( spriteRenderer != null )
       {
-        spriteRenderer.color = Color.Lerp( Color.white, Color.black, cookedLevel );
+        if( cookedLevel < ChefFood.CookedLevelCooked )
+        {
+          spriteRenderer.color = Color.Lerp( Color.white, Color.red,
+                                             ( cookedLevel - ChefFood.CookedLevelRaw ) / ( ChefFood.CookedLevelCooked - ChefFood.CookedLevelRaw ) );
+        }
+        else
+        if( cookedLevel <= ChefFood.CookedLevelBurnt )
+        {
+          spriteRenderer.color = Color.Lerp( Color.red, Color.black,
+                                             ( cookedLevel - ChefFood.CookedLevelCooked ) / ( ChefFood.CookedLevelBurnt - ChefFood.CookedLevelCooked ) );
+        }
       }
-    }
-  
-    // TODO: Check if pan has (food) contents.
-    //if( false )
-    {
-      //var food : Food = getFoodContents();
-      
-      // Apply this pan's heat level to the food.
-      //food.applyHeatLevel( heatLevel );
     }
   }
   
   public void reset()
   {
+    heatLevel = 0.0f;
+    appliedHeatLevel = 0.0f;
+    cookedLevel = 0.0f;
+
     SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
     if( spriteRenderer != null )
     {
@@ -63,7 +79,6 @@ public class ChefFood : ChefEntity
   {
     //print( "mouse up" );
     dragging = false;
-    //panCenterToDragPointDistance = Vector3.zero;
   }
   
   void OnMouseDrag()
@@ -81,20 +96,6 @@ public class ChefFood : ChefEntity
     
     transform.position = curPosition;
   }
-  
-  /*void OnTriggerEnter2D( Collider2D other )
-  {
-    string otherName = other.name;
-    if( otherName.Contains( "Pan" ) && !otherName.Contains( "PanHandle" ) ) // NOTE: This is super sensitive bad coding!
-    {
-      //print( otherName );
-      ChefPan curPan = other.GetComponent<ChefPan>();
-      if( curPan != null )
-      {
-        //curPan.associateFoodWithPan( curPan );
-      }
-    }
-  }*/
   
   void OnTriggerStay2D( Collider2D other )
   {
@@ -131,6 +132,8 @@ public class ChefFood : ChefEntity
       if( foodReceptacle != null )
       {
         foodReceptacle.removeObject( this );
+
+        appliedHeatLevel = 0.0f;
         return;
       }
     }

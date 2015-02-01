@@ -14,7 +14,8 @@ public class ChefCuttingBoard : ChefFoodReceptacle
 
     // Determine if food is raw, cooked, or overcooked.
     // Update user score.
-    if( food.cookedLevel < 0.5 || food.cookedLevel > 1.0 )
+    if( food.cookedLevel < ChefFood.CookedLevelCooked ||
+        food.cookedLevel >= ChefFood.CookedLevelOverCooked )
     {
       ChefMain.NumberOfBadFoodPrepared++;
       print( "Bad food prepared." );
