@@ -73,8 +73,6 @@ MonoBehaviour:
   cookedLevel: 0
   heatResistance: .400000006
   dragging: 0
-  cuttingBoard: {fileID: 0}
-  pan: {fileID: 0}
 --- !u!212 &21244602
 SpriteRenderer:
   m_ObjectHideFlags: 1

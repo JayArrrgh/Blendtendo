@@ -50,7 +50,19 @@ public class ChefFlame : MonoBehaviour
     on = newOn;
     
     // Turn on flame, vice versa.
-    renderer.enabled = newOn;
+    //renderer.enabled = newOn;
+    ParticleSystem particleSystem = gameObject.GetComponent<ParticleSystem>();
+    if( particleSystem != null )
+    {
+      if( on )
+      {
+        particleSystem.Play();
+      }
+      else
+      {
+        particleSystem.Stop();
+      }
+    }
   }
   
   public void setHeatLevel( float newHeatLevel )
@@ -61,5 +73,11 @@ public class ChefFlame : MonoBehaviour
     float heatLevelRatio = heatLevel / maxHeatLevel;
     float scaleFactor = Mathf.Lerp( minScale, maxScale, heatLevelRatio );
     transform.localScale = new Vector3( scaleFactor, scaleFactor, 0 );
+
+    ParticleSystem particleSystem = gameObject.GetComponent<ParticleSystem>();
+    if( particleSystem != null )
+    {
+      particleSystem.startSize = scaleFactor * 7.0f;
+    }
   }
 }
