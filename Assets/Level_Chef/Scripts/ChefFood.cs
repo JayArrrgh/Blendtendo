@@ -82,7 +82,7 @@ public class ChefFood : ChefEntity
     transform.position = curPosition;
   }
   
-  void OnTriggerEnter2D( Collider2D other )
+  /*void OnTriggerEnter2D( Collider2D other )
   {
     string otherName = other.name;
     if( otherName.Contains( "Pan" ) && !otherName.Contains( "PanHandle" ) ) // NOTE: This is super sensitive bad coding!
@@ -94,7 +94,7 @@ public class ChefFood : ChefEntity
         //curPan.associateFoodWithPan( curPan );
       }
     }
-  }
+  }*/
   
   void OnTriggerStay2D( Collider2D other )
   {
@@ -103,8 +103,20 @@ public class ChefFood : ChefEntity
       // Put food in container.
       ChefFoodReceptacle foodReceptacle = other.GetComponent<ChefFoodReceptacle>();
       if( foodReceptacle != null )
-      {
+      { 
+        ChefPan pan = foodReceptacle as ChefPan;
+        if( pan != null )
+        { 
+          if( pan.addObject( this ) )
+          {
+            // Reposition food to center of pan.
+            transform.position = pan.transform.position;
+          }
+          return;
+        }
+
         foodReceptacle.addObject( this );
+
         return;
       }
     }
@@ -112,7 +124,16 @@ public class ChefFood : ChefEntity
   
   void OnTriggerExit2D( Collider2D other )
   {
-    //associate( null );
+    string otherName = other.name;
+    if( otherName.Contains( "Pan" ) && !otherName.Contains( "PanHandle" ) ) // NOTE: This is super sensitive bad coding!
+    {
+      ChefFoodReceptacle foodReceptacle = other.GetComponent<ChefFoodReceptacle>();
+      if( foodReceptacle != null )
+      {
+        foodReceptacle.removeObject( this );
+        return;
+      }
+    }
   }
 
   public void applyHeatLevel( float newHeatLevel )

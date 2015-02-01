@@ -15,6 +15,7 @@ public class ChefTrashCan : ChefFoodReceptacle
     ChefMain.NumberOfFoodThrownOut++;
     print( "Food thrown out." );
 
+    clearObjects();
     food.reset();
 
     return true;

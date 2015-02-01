@@ -89,4 +89,22 @@ public class ChefPan : ChefFoodReceptacle
   {
     appliedHeatLevel = newHeatLevel;
   }
+
+  public override bool addObject( ChefEntity entity )
+  {
+    // Should only be allowed to add ChefFood.
+    ChefFood food = entity as ChefFood;
+    if( food == null )
+    {
+      return false;
+    }
+
+    if( hasObjects() )
+    {
+      // NOTE: Only one piece of food allowed at the moment.
+      return false;
+    }
+
+    return base.addObject( entity );
+  }
 }

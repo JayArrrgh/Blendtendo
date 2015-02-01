@@ -12,8 +12,6 @@ public class ChefFoodReceptacle : ChefEntity
       return false;
     }
 
-    addObject( food );
-
-    return true;
+    return base.addObject( food );
   }
 }

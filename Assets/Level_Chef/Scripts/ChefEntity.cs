@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ChefEntity : MonoBehaviour
 {
-	protected ArrayList objectList;
+	public ArrayList objectList;
 
-  void Start()
+  public ChefEntity()
   {
     objectList = new ArrayList();
     clearObjects();

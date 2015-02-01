@@ -25,6 +25,7 @@ public class ChefCuttingBoard : ChefFoodReceptacle
       print( "Good food prepared." );
     }
 
+    clearObjects();
     food.reset();
 
     return true;

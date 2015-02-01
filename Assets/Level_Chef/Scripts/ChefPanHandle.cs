@@ -54,5 +54,16 @@ public class ChefPanHandle : MonoBehaviour
     }
 
     pan.transform.position = curPosition + panCenterToDragPointDistance;
+
+    // Move all things contained in pan.
+    // TODO: Optimize.
+    for( int i = 0; i < pan.objectList.Count; i++ )
+    {
+      ChefEntity entity = pan.objectList[i] as ChefEntity;
+      if( entity != null )
+      {
+        entity.transform.position = pan.transform.position;
+      }
+    }
   }
 }
