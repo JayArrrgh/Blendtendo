@@ -5,8 +5,8 @@ public class CoderScoreboard : MonoBehaviour {
 
 	private static CoderScoreboard instance;
 	
-	private int score = 0;
-	private string prefix = "Code Written: ";
+	protected int score = 0;
+	protected string prefix = "Code Written: ";
 	public int goldLevel = 20, silverLevel = 12, bronzeLevel = 5;
 	//public GameObject goldMedal, silverMedal, bronzeMedal;
 	
@@ -18,7 +18,7 @@ public class CoderScoreboard : MonoBehaviour {
 		instance.MyGetPoint();
 	}
 	
-	private void MyGetPoint () {
+	protected virtual void MyGetPoint () {
 		score++;
 		CoderDestroyableWorkstation.Damage();
 		if (score == goldLevel) {

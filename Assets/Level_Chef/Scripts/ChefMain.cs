@@ -5,6 +5,8 @@ public class ChefMain : MonoBehaviour
 {
 	public static ChefMain me = null;
 
+  public static bool LevelEnded = false;
+
   public static int NumberOfGoodFoodPrepared = 0;
   public static int NumberOfBadFoodPrepared = 0;
   public static int NumberOfFoodThrownOut = 0;
@@ -17,12 +19,15 @@ public class ChefMain : MonoBehaviour
   void Start()
   {
     me = this;
+
+    ChefMain.LevelEnded = false;
   
     ChefMain.NumberOfGoodFoodPrepared = 0;
     ChefMain.NumberOfBadFoodPrepared = 0;
     ChefMain.NumberOfFoodThrownOut = 0;
 
     // Set timer.
+    ChefCountdown.StartStopWatch();
     timeLeft = totalTime;
 
     // Start music.
@@ -40,6 +45,11 @@ public class ChefMain : MonoBehaviour
   public static void SetScore( int score )
   {
     ScoreKeeper.SetGameStats( 1, score );
+  }
+
+  public static void EndLevel()
+  {
+    ChefMain.me.ReturnToMenu();
   }
   
   public void ReturnToMenu()
