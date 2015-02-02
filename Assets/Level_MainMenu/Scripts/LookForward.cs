@@ -20,7 +20,7 @@ public class LookForward : MonoBehaviour {
         Debug.DrawLine(sightStart.position, sightEnd.position, Color.green);
 
         if (collision == needsCollision){
-            //directionX = 0;
+            //PlayerMovement.directionX = 0;
             animator.SetInteger("AnimState", 0);
         }
 	}

@@ -5,6 +5,7 @@ public class LevelLoad : MonoBehaviour {
 
 	public string scene;
 	public float time;
+	public AudioClip sound;
 	
 	private bool loadLock = false;
 
@@ -38,6 +39,7 @@ public class LevelLoad : MonoBehaviour {
 			if (loadLock == true){
 
 				StartCoroutine( LoadSceneDelayed());
+				audio.PlayOneShot(sound);
 			}
 		}
 	}

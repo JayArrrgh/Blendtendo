@@ -85,7 +85,6 @@ GameObject:
   - 212: {fileID: 649280404}
   - 114: {fileID: 649280403}
   - 131: {fileID: 649280402}
-  - 114: {fileID: 649280406}
   m_Layer: 0
   m_Name: FadeIn
   m_TagString: Untagged
@@ -127,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   scene: MenuScene
-  fadeOut: 0
+  fadeOut: 1
 --- !u!212 &649280404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -163,18 +162,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!114 &649280406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 649280401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4804cbbb6795db14f9d391586ea3eb63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: MenuScene
 --- !u!1 &1501957876
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +377,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447804, guid: 143c788785d6e1f44bfd2d8f7df4f41b, type: 2}
       propertyPath: fadeOut
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 176294, guid: 143c788785d6e1f44bfd2d8f7df4f41b, type: 2}
       propertyPath: m_IsActive
