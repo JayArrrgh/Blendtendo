@@ -11,6 +11,13 @@ public class ChefFlame : MonoBehaviour
   
   public float maxHeatLevel = 10.0f;
 
+  protected AudioSource flameSound;
+
+  void Awake()
+  {
+    flameSound = GetComponentInChildren<AudioSource>();
+  }
+
   void Start()
   {
     turnOn( on );
@@ -47,6 +54,8 @@ public class ChefFlame : MonoBehaviour
   
   public void turnOn( bool newOn )
   {
+    bool previousOn = on;
+
     on = newOn;
     
     // Turn on flame, vice versa.
@@ -61,6 +70,19 @@ public class ChefFlame : MonoBehaviour
       else
       {
         particleSystem.Stop();
+      }
+    }
+
+    if( !previousOn && on )
+    {
+      if( flameSound != null )
+      {
+        if( flameSound.isPlaying )
+        {
+          flameSound.Stop();
+        }
+
+        flameSound.Play();
       }
     }
   }

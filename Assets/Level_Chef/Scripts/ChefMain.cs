@@ -11,10 +11,7 @@ public class ChefMain : MonoBehaviour
   public static int NumberOfBadFoodPrepared = 0;
   public static int NumberOfFoodThrownOut = 0;
   
-  public static float totalTime = 30;
-  public static float timeLeft = 0;
-  
-  public AudioClip musicClip;
+  //public static float totalTime = 30;
 
   void Start()
   {
@@ -28,13 +25,9 @@ public class ChefMain : MonoBehaviour
 
     // Set timer.
     ChefCountdown.StartStopWatch();
-    timeLeft = totalTime;
 
     // Start music.
-    if( musicClip != null )
-    {
-      AudioSource.PlayClipAtPoint( musicClip, transform.position, 0.5f );
-    }
+    ChefSoundSystem.PlayTheme();
   }
 
   void Update()
@@ -47,12 +40,19 @@ public class ChefMain : MonoBehaviour
     ScoreKeeper.SetGameStats( 1, score );
   }
 
-  public static void EndLevel()
+  public void endThisLevel()
   {
-    ChefMain.me.ReturnToMenu();
+    ChefSoundSystem.StopTheme();
+
+    returnToMenu();
+  }
+
+  public static void StaticEndLevel()
+  {
+    ChefMain.me.endThisLevel();
   }
   
-  public void ReturnToMenu()
+  public void returnToMenu()
   {
     int score = 0;
    

@@ -18,6 +18,13 @@ public class ChefFood : ChefEntity
   
   protected Vector3 originPosition;
 
+  protected AudioSource cookingSound;
+
+  void Awake()
+  {
+    cookingSound = GetComponentInChildren<AudioSource>();
+  }
+
   void Start()
   {
     originPosition = transform.position;
@@ -30,7 +37,27 @@ public class ChefFood : ChefEntity
     // Transfer heat slowly.
     if( heatLevel != appliedHeatLevel )
     {
+      float previousHeatLevel = heatLevel;
+
       heatLevel = ChefHeatTransferUtility.caculateNewHeatLevel( heatLevel, appliedHeatLevel, heatResistance );
+
+      if( cookingSound != null )
+      {
+        if( heatLevel == 0.0f )
+        {
+          cookingSound.Stop();
+        }
+        else
+        {
+          cookingSound.volume = heatLevel / 10.0f;
+
+          if( previousHeatLevel == 0.0f )
+          {
+            cookingSound.Play();
+          }
+        }
+      }
+      
     }
 
     if( heatLevel > 0.0f )
@@ -73,6 +100,11 @@ public class ChefFood : ChefEntity
     }
     
     transform.position = originPosition;
+
+    if( cookingSound != null )
+    { 
+      cookingSound.Stop();
+    }
   }
   
   void OnMouseUp()

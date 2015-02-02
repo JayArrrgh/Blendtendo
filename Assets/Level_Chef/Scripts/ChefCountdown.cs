@@ -10,7 +10,7 @@ public class ChefCountdown : CoderCountdown
 		guiText.text = prefix + Mathf.Max( ( float )( duration - sw.Elapsed.TotalSeconds ), 0 ).ToString( "F2" );
 		if( sw.Elapsed.TotalSeconds > duration && !ChefMain.LevelEnded ) 
     {
-      ChefMain.EndLevel();
+      ChefMain.StaticEndLevel();
 		}
 	}
 }
