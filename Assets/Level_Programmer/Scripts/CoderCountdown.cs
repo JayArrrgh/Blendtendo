@@ -6,10 +6,10 @@ using System;
 public class CoderCountdown : MonoBehaviour {
 	
 	public double duration;
-	private string prefix = "Time Remaining: ";
-	private static CoderCountdown instance;
+	protected string prefix = "Time Remaining: ";
+	protected static CoderCountdown instance;
 	
-	Stopwatch sw;
+	protected Stopwatch sw;
 	
 	
 	void Awake () {

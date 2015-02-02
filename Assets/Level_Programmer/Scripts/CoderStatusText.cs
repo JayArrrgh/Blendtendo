@@ -3,11 +3,11 @@ using System.Collections;
 
 public class CoderStatusText : MonoBehaviour {
 
-	private static string instructions = "Click the lit keys\nto write code!";
-	private static string goldText = "Workday vanquished!";
-	private static string silverText = "Level up!";
-	private static string bronzeText = "Good enough!";
-	private static string failText = "You're fired\n(for obvious\nreasons)";
+  protected static string instructions = "Click the lit keys\nto write code!";
+  private static string goldText = "Workday vanquished!";
+  private static string silverText = "Level up!";
+  private static string bronzeText = "Good enough!";
+  private static string failText = "You're fired\n(for obvious\nreasons)";
 	
 	private static CoderStatusText instance;
 	
