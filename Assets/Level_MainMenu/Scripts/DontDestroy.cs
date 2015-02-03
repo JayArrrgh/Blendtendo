@@ -3,9 +3,9 @@ using System.Collections;
 
 public class DontDestroy : MonoBehaviour {
 
-
 	void Awake(){
-						DontDestroyOnLoad (transform.gameObject);
+
+		DontDestroyOnLoad (transform.gameObject);
 	}
 	// Use this for initialization
 	void Start () {
