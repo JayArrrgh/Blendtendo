@@ -57,7 +57,7 @@ public class ChefPan : ChefFoodReceptacle
       ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
       if( burner != null )
       {
-        print( "Pan entering: " + otherName );
+        //print( "Pan entering: " + otherName );
       
         burner.setPan( this );
       }
@@ -87,7 +87,7 @@ public class ChefPan : ChefFoodReceptacle
       ChefStoveElement burner = other.GetComponent<ChefStoveElement>();
       if( burner != null )
       {
-        print( "Pan exiting: " + otherName );
+        //print( "Pan exiting: " + otherName );
 
         burner.setPan( null );
       }
@@ -108,12 +108,18 @@ public class ChefPan : ChefFoodReceptacle
       return false;
     }
 
-    if( hasObjects() )
+    if( ( food.parent != this ) && hasObjects() )
     {
       // NOTE: Only one piece of food allowed at the moment.
+
+      food.returnToPreviousParent();
+
       return false;
     }
 
-    return base.addObject( entity );
+    // Move food to center of pan.
+    food.moveToInTime( transform.position, 0.25f );
+    
+    return base.addObject( food );
   }
 }

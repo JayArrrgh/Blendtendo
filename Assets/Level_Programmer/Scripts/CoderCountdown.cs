@@ -28,6 +28,11 @@ public class CoderCountdown : MonoBehaviour {
 	public static void StopStopWatch () {
 		instance.sw.Stop();
 	}
+
+  public static double GetTotalSeconds()
+  {
+    return instance.sw.Elapsed.TotalSeconds;
+  }
 	
 	void Update () {
 		

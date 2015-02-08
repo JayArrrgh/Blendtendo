@@ -10,8 +10,12 @@ public class ChefMain : MonoBehaviour
   public static int NumberOfGoodFoodPrepared = 0;
   public static int NumberOfBadFoodPrepared = 0;
   public static int NumberOfFoodThrownOut = 0;
+
+  public GameObject foodPrefab = null;
   
   //public static float totalTime = 30;
+  public double nextSpawnFoodTime = 0.0;
+  public double spawnFoodTimeInterval = 10.0;
 
   void Start()
   {
@@ -32,7 +36,35 @@ public class ChefMain : MonoBehaviour
 
   void Update()
   {
-    
+    bool releaseNewPieceOfFood = false;
+
+    double totalSeconds = ChefCountdown.GetTotalSeconds();
+    if( totalSeconds >= nextSpawnFoodTime )
+    {
+      // Every so many seconds, release a new piece of food.
+      releaseNewPieceOfFood = true;
+
+      nextSpawnFoodTime = totalSeconds + spawnFoodTimeInterval;
+    }
+
+    if( Input.GetKeyDown( KeyCode.Space ) )
+    {
+      // If player presses Space key, release a new piece of food.
+      releaseNewPieceOfFood = true;
+    }
+
+    if( releaseNewPieceOfFood )
+    {
+      GameObject newObject = GameObject.Instantiate( foodPrefab ) as GameObject;
+      if( newObject != null )
+      {
+        ChefFood newFood = newObject.GetComponent<ChefFood>();
+        if( newFood != null )
+        {
+          ChefFoodQueue.instance.addObject( newFood );
+        }
+      }
+    }
   }
   
   public static void SetScore( int score )

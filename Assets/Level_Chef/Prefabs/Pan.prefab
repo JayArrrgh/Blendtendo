@@ -148,6 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa767ceb1be03ca4da94552caee6a946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  previousParent: {fileID: 0}
+  moving: 0
+  beginPosition: {x: 0, y: 0, z: 0}
+  destination: {x: 0, y: 0, z: 0}
   heatLevel: 0
   appliedHeatLevel: 0
   heatResistance: .100000001
@@ -171,7 +176,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 867104a4d2dd5ee40936979c841a68ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
